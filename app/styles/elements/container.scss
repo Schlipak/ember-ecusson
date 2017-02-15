@@ -1,0 +1,49 @@
+//
+// Container element for Ecusson CSS
+//
+
+$--alignments: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "base": baseline,
+  "stretch": stretch
+);
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+  }
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  $i: 1;
+  @each $kvp in $--alignments {
+    $class: nth($kvp, 1);
+    $prop: nth($kvp, 2);
+
+    &.main-#{$class} {
+      justify-content: $prop;
+    }
+
+    &.cross-#{$class} {
+      align-items: $prop;
+    }
+
+    $i: $i + 1;
+  }
+}

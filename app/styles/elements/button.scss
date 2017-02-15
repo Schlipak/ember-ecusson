@@ -1,0 +1,257 @@
+//
+// Button element for Ecusson
+//
+
+// Base button style
+button, .button {
+  display: inline-block;
+  position: relative;
+
+  padding: .6em 1.2em;
+  margin: .1em;
+
+  border: none;
+  border-radius: $sizing-element-border-radius;
+  outline: none;
+  background-color: $color-white-off;
+
+  font-family: $font-regular;
+  text-decoration: none;
+  text-align: center;
+  color: $color-black;
+  font-weight: normal;
+  font-size: 1em;
+
+  cursor: pointer;
+  transition: background-color .3s, color .3s, border-color .3s;
+
+  @include no-select;
+  @include moz-button-style-fix;
+
+  &:hover, &:focus {
+    background-color: lighten($color-white-off-dark, 10%);
+  }
+
+  &:active {
+    background-color: $color-white-off-dark;
+  }
+
+  &.expand {
+    display: block;
+    width: 100%;
+  }
+
+  &.black {
+    background-color: lighten($color-black, 20%);
+    color: $color-white;
+
+    &:hover, &:focus {
+      background-color: lighten($color-black, 10%);
+    }
+
+    &:active {
+      background-color: $color-black;
+    }
+
+    &.basic {
+      background-color: $color-white;
+      color: lighten($color-black, 20%);
+      border-color: lighten($color-black, 20%);
+
+      &:hover, &:focus {
+        background-color: lighten($color-black, 20%);
+        color: $color-white;
+      }
+
+      &:active {
+        background-color: lighten($color-black, 10%);
+        border-color: lighten($color-black, 10%);
+        color: $color-white;
+      }
+    } //! &.basic
+  } //! &.black
+
+  &.basic {
+    background-color: $color-white;
+    border-width: .15em;
+    border-style: solid;
+
+    &:hover, &:focus {
+      background-color: darken($color-grey-dark, 20%);
+      border-color: darken($color-grey-dark, 20%);
+      color: $color-white;
+    }
+
+    &:active {
+      background-color: darken($color-grey-dark, 30%);
+      border-color: darken($color-grey-dark, 30%);
+    }
+  } //! .basic
+
+  &.rounded {
+    border-radius: 1.1em;
+
+    &.basic {
+      border-radius: 1.25em;
+    }
+  }
+
+  > .icon {
+    margin: 0 .25em;
+    pointer-events: none;
+  }
+}
+
+// Colored button styles
+button, .button {
+  $i: 1;
+
+  @each $kvp in $--std-colors {
+    $light: nth($kvp, 2);
+    $dark: nth(nth($--std-colors-dark, $i), 2);
+
+    &.#{nth($kvp, 1)} {
+      background-color: $light;
+      color: color-contrast($light, $color-black, $color-white);
+
+      &:hover, &:focus {
+        background-color: $dark;
+        color: color-contrast($dark, $color-black, $color-white);
+      }
+
+      &:active {
+        background-color: darken($dark, 10%);
+        color: color-contrast(darken($dark, 10%), $color-black, $color-white);
+      }
+
+      &.basic {
+        background-color: $color-white;
+        color: $light;
+        border-color: $light;
+
+        &:hover, &:focus {
+          background-color: $light;
+          color: color-contrast($light, $color-black, $color-white);
+        }
+
+        &:active {
+          background-color: $dark;
+          border-color: $dark;
+          color: color-contrast($dark, $color-black, $color-white);
+        }
+      } //! &.basic
+    } //! &.{{color}}.button
+
+    $i: $i + 1;
+  } //! @each
+}
+
+// Social network colored button styles
+@each $kvp in $--std-colors-social {
+  $light: nth($kvp, 2);
+  $dark: darken($light, 10%);
+
+  button.#{nth($kvp, 1)}, .button.#{nth($kvp, 1)} {
+    background-color: $light;
+    color: color-contrast($light, $color-black, $color-white);
+
+    &:hover, &:focus {
+      background-color: $dark;
+      color: color-contrast($dark, $color-black, $color-white);
+    }
+
+    &:active {
+      background-color: darken($dark, 10%);
+      color: color-contrast(darken($dark, 10%), $color-black, $color-white);
+    }
+
+    &.basic {
+      background-color: $color-white;
+      color: $light;
+      border-color: $light;
+
+      &:hover, &:focus {
+        background-color: $light;
+        color: color-contrast($light, $color-black, $color-white);
+      }
+
+      &:active {
+        background-color: $dark;
+        border-color: $dark;
+        color: color-contrast($dark, $color-black, $color-white);
+      }
+    } //! &.basic
+  }
+}
+
+// Split buttons
+button.split, .button.split {
+  padding: 0;
+  overflow: hidden;
+
+  &.right {
+    padding-left: 1.2em;
+
+    .sub {
+      margin-left: .6em;
+      margin-right: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &.icon, .icon {
+        margin-right: 0;
+      }
+    }
+  } //! &.right
+
+  &.left {
+    padding-right: 1.2em;
+
+    .sub {
+      margin-right: .6em;
+      margin-left: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &.icon, .icon {
+        margin-left: 0;
+      }
+    }
+  } //! &.left
+
+  .sub {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    padding: .6em;
+  } //! .sub
+
+  &.basic {
+    .sub {
+      border-top-width: 0;
+      border-bottom-width: 0;
+    }
+
+    &.left {
+      .sub {
+        border-left-width: 0;
+      }
+    } //! &.left
+
+    &.right {
+      border-right-width: 0;
+    } //! &.right
+  } //! &.basic
+}
+
+.sub {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+a.button {
+  display: inline-block;
+
+  &::after {
+    display: none;
+  }
+}

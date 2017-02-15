@@ -1,0 +1,16 @@
+<div class="progress {{indeterminateClass}} {{completedClass}} {{currentColor}} {{style}}" role="progressbar">
+  <div class="bar">
+    <span class="value" style={{widthStyle}}>
+      {{#if showPercent}}
+        <span class="display">{{percentString}}</span>
+      {{else if showSteps}}
+        <span class="display">{{stepsString}}</span>
+      {{/if}}
+    </span>
+  </div>
+  {{#if showLabel}}
+    <label>
+      {{currentText}}
+    </label>
+  {{/if}}
+</div>

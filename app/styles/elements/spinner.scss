@@ -1,0 +1,43 @@
+//
+// Spinner element for Ecusson
+//
+
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 2em;
+  height: 2em;
+  margin: .5em;
+
+  background-color: transparentize($color-black, .95);
+
+  border-width: .2em;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: transparentize($color-black, .1);
+  border-radius: 50%;
+
+  animation-name: animationSpinnerRotate;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  $i: 1;
+  @each $kvp in $--std-colors-dark {
+    &.#{nth($kvp, 1)} {
+      background-color: transparentize(nth($kvp, 2), .95);
+      border-top-color: transparentize(nth($kvp, 2), .1);
+    }
+
+    $i: $i + 1;
+  }
+}
+
+@keyframes animationSpinnerRotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

@@ -1,0 +1,18 @@
+{{#if (and labelLeft hasBlock)}}
+  <span class="{{disabledClass}}">
+    {{yield}}
+  </span>
+{{/if}}
+
+<div class="box {{disabledClass}}">
+  <input type="checkbox" checked={{checked}} disabled={{disabled}}>
+  <div class="overlay {{color}}">
+    <i class="icon fa {{icon}}"></i>
+  </div>
+</div>
+
+{{#if (and (not labelLeft) hasBlock)}}
+  <span class="{{disabledClass}}">
+    {{yield}}
+  </span>
+{{/if}}

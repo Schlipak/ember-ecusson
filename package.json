@@ -1,32 +1,39 @@
 {
   "name": "ember-ecusson",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Ember-ready modern SCSS library",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ecusson",
+    "scss", "sass", "css",
+    "flat design", "modern"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Guillaume `Schlipak` de Matos",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/Schlipak/ember-ecusson",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^5.1.7"
+    "ember-cli-bourbon": "1.2.2",
+    "ember-cli-babel": "^5.1.7",
+    "ember-cli-htmlbars": "^1.0.10",
+    "ember-cli-sass": "6.1.1",
+    "ember-truth-helpers": "1.3.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^2.4.1",
+    "ember-cli-autoprefixer": "0.6.0",
     "ember-cli": "2.10.0",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-dependency-checker": "^1.3.0",
-    "ember-cli-htmlbars": "^1.0.10",
     "ember-cli-htmlbars-inline-precompile": "^0.3.3",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-jshint": "^2.0.1",

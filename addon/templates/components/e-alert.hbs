@@ -1,0 +1,9 @@
+<span class="alert-message">
+  {{#if icon}}
+    <i class="icon fa fa-{{icon}}"></i>
+  {{/if}}
+  {{yield}}
+</span>
+<a href="#" {{action 'dismiss'}} class="alert-close">
+  <i class="icon fa fa-close"></i>
+</a>

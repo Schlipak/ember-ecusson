@@ -1,0 +1,43 @@
+// General mixins for Ecusson
+
+// Disables text selection
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select  : none;
+  -moz-user-select     : none;
+  -ms-user-select      : none;
+  user-select          : none;
+}
+
+// Fix for border-radius clipping on Webkit with absolute positionned
+// elements in the container.
+// !! WILL break box-shadow !!
+@mixin webkit-border-radius-fix {
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+
+// Removes Webkit's autofill style
+@mixin webkit-autofill-fix($background, $foreground) {
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px $background inset;
+    -webkit-text-fill-color: $foreground !important;
+  }
+}
+
+// Removes Firefox's focus style
+@mixin moz-button-style-fix {
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+// Fix Firefox's ugly box-shadow for invalid inputs
+@mixin moz-input-invalid-fix {
+  &:-moz-ui-invalid:-moz-focusring:not(output) {
+    box-shadow: none;
+  }
+
+  &:-moz-ui-invalid:not(output) {
+    box-shadow: none;
+  }
+}

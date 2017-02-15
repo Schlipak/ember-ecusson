@@ -1,0 +1,138 @@
+//
+// Input element for Ecusson
+//
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  border: none;
+  border-radius: $sizing-element-border-radius;
+  background-color: $color-white;
+
+  @include webkit-border-radius-fix;
+
+  transition: background-color .3s;
+
+  span.error {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 0 0;
+
+    text-align: center;
+    font-size: 0em;
+    color: $color-red;
+
+    background-color: transparentize($color-red, .9);
+    opacity: 0;
+
+    transition: padding .3s, opacity .3s, font-size .3s;
+    cursor: default;
+    @include no-select;
+  }
+
+  span {
+    display: block;
+    position: relative;
+    padding: 1em 1em 0 1em;
+  }
+
+  input {
+    display: block;
+    position: relative;
+    padding: 1em;
+
+    font-size: 1em;
+    color: lighten($color-black, 15%);
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    @include moz-input-invalid-fix;
+    @include webkit-autofill-fix($color-white, lighten($color-black, 15%));
+
+    &::placeholder {
+      color: transparentize($color-black, .55);
+    }
+  }
+
+  &.required {
+    &:before {
+      content: '\f069';
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      position: absolute;
+      top: -2.5em;
+      right: -2.5em;
+      width: 5em;
+      height: 5em;
+      padding-bottom: .5em;
+      box-sizing: border-box;
+
+      background-color: transparentize($color-black, .9);
+      text-align: center;
+      font-family: $font-icons;
+      font-size: .8em;
+      font-weight: normal;
+      color: $color-red;
+
+      transform: rotateZ(45deg);
+
+      @include no-select;
+      z-index: 100;
+    }
+  } //! &.required
+
+  &.invalid {
+    background-color: lighten($color-red, 35%);
+
+    span.error {
+      padding: .5em 0;
+      font-size: .9em;
+      opacity: 1;
+    }
+
+    input {
+      @include webkit-autofill-fix(lighten($color-red, 35%), lighten($color-black, 15%));
+    }
+  } //! &.invalid
+
+  .prefix, .suffix {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1em;
+
+    span {
+      display: block;
+      position: relative;
+      padding: 0;
+      font-size: 1em;
+      color: lighten($color-black, 10%);
+      @include no-select;
+    }
+
+    input {
+      flex-grow: 1;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .prefix span {
+    padding-right: .5em;
+  }
+
+  .suffix span {
+    padding-left: .5em;
+  }
+}

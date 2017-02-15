@@ -1,0 +1,94 @@
+//
+// Tag element for Ecusson
+//
+
+.tag {
+  display: inline-block;
+  position: relative;
+  padding: .25em .5em;
+
+  font-family: $font-regular;
+  font-size: .8em;
+  text-decoration: none;
+  border-radius: $sizing-element-border-radius;
+
+  background-color: $color-white-off;
+  color: $color-black;
+
+  @include no-select;
+
+  &.black {
+    background-color: lighten($color-black, 20%);
+    color: $color-white;
+  }
+
+  &.infos {
+    cursor: help;
+  }
+
+  $i: 1;
+  @each $kvp in $--std-colors {
+    $light: nth(nth($--std-colors-dark, $i), 2);
+    $dark: darken($light, 10%);
+
+    &.#{nth($kvp, 1)} {
+      background-color: nth($kvp, 2);
+      color: color-contrast(nth($kvp, 2), $color-black, $color-white);
+    }
+
+    $i: $i + 1;
+  }
+}
+
+a.tag {
+  display: inline-block;
+  transition: background-color .3s, color .3s;
+
+  &:after {
+    display: none;
+  }
+
+  &:hover, &:focus {
+    background-color: darken($color-white-off, 10%);
+    color: color-contrast(darken($color-white-off, 10%), $color-black, $color-white);
+  }
+
+  &:active {
+    background-color: darken($color-white-off, 20%);
+    color: color-contrast(darken($color-white-off, 20%), $color-black, $color-white);
+  }
+
+  &.black {
+
+    &:hover, &:focus {
+      background-color: lighten($color-black, 10%);
+      color: $color-white;
+    }
+
+    &:active {
+      background-color: $color-black;
+      color: $color-white;
+    }
+
+  }
+
+  $i: 1;
+  @each $kvp in $--std-colors {
+    $light: nth(nth($--std-colors-dark, $i), 2);
+    $dark: darken($light, 10%);
+
+    &.#{nth($kvp, 1)} {
+      &:hover, &:focus {
+        background-color: $light;
+        color: color-contrast($light, $color-black, $color-white);
+      }
+
+      &:active {
+        background-color: $dark;
+        color: color-contrast($dark, $color-black, $color-white);
+      }
+    }
+
+    $i: $i + 1;
+  }
+}

@@ -1,0 +1,19 @@
+// Code snippets style for Ecusson
+
+code {
+  display: inline-block;
+  position: relative;
+  padding: .2em .5em;
+  margin: 0 .5em;
+
+  background-color: transparentize($color-white-off-dark, .85);
+  color: inherit;
+  border-radius: .2em;
+  font-size: .9em;
+  font-family: $font-monospace;
+
+  &.inverted {
+    background-color: transparentize($color-white, .75);
+    color: $color-white;
+  }
+}

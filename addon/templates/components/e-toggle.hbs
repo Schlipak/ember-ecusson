@@ -1,0 +1,27 @@
+<label class="{{disabledClass}}">
+  {{#if (and labelLeft hasBlock)}}
+    <span>
+      {{yield}}
+    </span>
+  {{/if}}
+
+  <div class="handle {{style}}">
+    {{#if actionName}}
+      <input
+        type="checkbox"
+        onclick={{action actionName params preventDefault='false'}}
+        checked={{active}}
+        disabled={{disabled}}
+      />
+    {{else}}
+      {{input type="checkbox" checked=active disabled=disabled}}
+    {{/if}}
+    <div class="overlay"></div>
+  </div>
+
+  {{#if (and (not labelLeft) hasBlock)}}
+    <span>
+      {{yield}}
+    </span>
+  {{/if}}
+</label>

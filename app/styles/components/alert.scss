@@ -1,0 +1,115 @@
+//
+// Alert component for Ecusson CSS
+//
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1em;
+  margin: .5em;
+
+  border-radius: $sizing-element-border-radius;
+
+  color: $color-black;
+  background-color: lighten($color-grey-dark, 40%);
+
+  opacity: 1;
+  transition: padding .8s,
+              margin .8s,
+              font-size .8s,
+              opacity .8s;
+
+  &.dismissing {
+    padding: 0 1em;
+    margin: 0 .5em;
+    opacity: 0;
+
+    span.alert-message {
+      font-size: 0;
+    }
+
+    a.alert-close {
+      font-size: 0;
+    }
+  }
+
+  &.dismissed {
+    display: none;
+  }
+
+  span.alert-message {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    transition: font-size .8s;
+
+    i.icon {
+      font-size: 1.3em;
+      margin-right: .5em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: .2em;
+    }
+  }
+
+  a.alert-close {
+    display: inline-block;
+    position: relative;
+    color: currentColor;
+    font-size: 1em;
+
+    opacity: .6;
+
+    transition: font-size .8s, opacity .3s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  $i: 1;
+  $--alert-alt-classes: (
+    "red": "error",
+    "yellow": "warning",
+    "green": "success",
+    "blue": "info"
+  );
+  @each $kvp in $--std-colors {
+    $class: nth($kvp, 1);
+    $light: nth($kvp, 2);
+    $dark: darken(nth(nth($--std-colors-dark, $i), 2), 5%);
+
+    $amount: (100 - lightness($light)) - 5;
+
+    &.#{$class} {
+      color: $dark;
+      background-color: lighten($light, $amount);
+    }
+
+    $j: 1;
+    @each $alternate in $--alert-alt-classes {
+      $orig: nth($alternate, 1);
+      $alt: nth($alternate, 2);
+
+      @if $orig == $class {
+        &.#{$alt} {
+          color: $dark;
+          background-color: lighten($light, $amount);
+        }
+      }
+
+      $j: $j + 1;
+    }
+
+    $i: $i + 1;
+  }
+}

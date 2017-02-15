@@ -1,0 +1,48 @@
+//
+// Buttons group element for Ecusson
+//
+
+@import "button";
+
+.buttons.group {
+  display: inline-flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  border-radius: $sizing-element-border-radius;
+  overflow: hidden;
+
+  &.vertical {
+    flex-direction: column;;
+  }
+
+  &.expand {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+
+    .button {
+      flex-grow: 1;
+    }
+  } //! &.expand
+
+  &.basic {
+    .button:not(:last-child) {
+      border-right-width: 0;
+    }
+
+    &.vertical .button:not(:last-child) {
+      border-right-width: .15em;
+      border-bottom-width: 0;
+    }
+  } //! &.basic
+
+  .button {
+    margin: 0;
+    border-radius: 0;
+
+    flex-shrink: 1;
+  }
+}

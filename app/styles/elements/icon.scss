@@ -1,0 +1,44 @@
+//
+// Icon element for Ecusson
+//
+
+.icon {
+  display: inline-block;
+  position: relative;
+  width: 1em;
+  height: 1em;
+
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-align: center;
+
+  background-size: 1em;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: inherit;
+
+  font-size: 1em;
+
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+
+  $i: 1;
+  @each $kvp in $--std-colors {
+    &.#{nth($kvp, 1)} {
+      color: nth($kvp, 2);
+    }
+
+    $i: $i + 1;
+  }
+
+  $i: 1;
+  @each $kvp in $--std-colors-social {
+    &.#{nth($kvp, 1)} {
+      color: nth($kvp, 2);
+    }
+
+    $i: $i + 1;
+  }
+}

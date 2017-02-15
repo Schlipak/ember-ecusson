@@ -1,0 +1,16 @@
+//
+// Global styling for text elements for Ecusson
+//
+
+body {
+  font-family: $font-regular;
+  color: $color-black;
+}
+
+*::selection {
+  background: lighten($color-blue, 40%) !important;
+}
+
+*::-moz-selection {
+  background: lighten($color-blue, 40%) !important;
+}
