@@ -5,53 +5,69 @@
 @import "../mixins/mixins-color";
 
 // Standard colors
-$color-red   : #E74C3C;
-$color-orange: #E67E22;
-$color-yellow: #FFCD02;
-$color-green : #2ECC71;
-$color-teal  : #1ABC9C;
-$color-blue  : #3498DB;
-$color-indigo: #5065A1;
-$color-purple: #9B59B6;
-$color-pink  : #F47CC3;
-$color-brown : #A38671;
+$color-red    : #E74C3C;
+$color-orange : #E67E22;
+$color-yellow : #FFCD02;
+$color-green  : #2ECC71;
+$color-teal   : #1ABC9C;
+$color-blue   : #3498DB;
+$color-indigo : #3F51B5;
+$color-purple : #9B59B6;
+$color-plum   : #673AB7;
+$color-pink   : #F47CC3;
+$color-fuchsia: #E91E63;
+$color-brown  : #A38671;
+
+$color-primary: $color-orange;
 
 $--std-colors:  (
-  "red"   : $color-red,
-  "orange": $color-orange,
-  "yellow": $color-yellow,
-  "green" : $color-green,
-  "teal"  : $color-teal,
-  "blue"  : $color-blue,
-  "indigo": $color-indigo,
-  "purple": $color-purple,
-  "pink"  : $color-pink,
-  "brown" : $color-brown
+  "red"    : $color-red,
+  "orange" : $color-orange,
+  "yellow" : $color-yellow,
+  "green"  : $color-green,
+  "teal"   : $color-teal,
+  "blue"   : $color-blue,
+  "indigo" : $color-indigo,
+  "purple" : $color-purple,
+  "plum"   : $color-plum,
+  "pink"   : $color-pink,
+  "fuchsia": $color-fuchsia,
+  "brown"  : $color-brown,
+
+  "primary": $color-primary
 );
 
 // Dark colors
-$color-red-dark   : #C0392B;
-$color-orange-dark: #D35400;
-$color-yellow-dark: #FFA800;
-$color-green-dark : #27AE60;
-$color-teal-dark  : #16A085;
-$color-blue-dark  : #2980B9;
-$color-indigo-dark: #394C81;
-$color-purple-dark: #8E44AD;
-$color-pink-dark  : #D45C9E;
-$color-brown-dark : #8E725E;
+$color-red-dark    : #C0392B;
+$color-orange-dark : #D35400;
+$color-yellow-dark : #FFA800;
+$color-green-dark  : #27AE60;
+$color-teal-dark   : #16A085;
+$color-blue-dark   : #2980B9;
+$color-indigo-dark : #303F9F;
+$color-purple-dark : #8E44AD;
+$color-plum-dark   : #512DA8;
+$color-pink-dark   : #D45C9E;
+$color-fuchsia-dark: #C2185B;
+$color-brown-dark  : #8E725E;
+
+$color-primary-dark: $color-orange-dark;
 
 $--std-colors-dark: (
-  "red"   : $color-red-dark,
-  "orange": $color-orange-dark,
-  "yellow": $color-yellow-dark,
-  "green" : $color-green-dark,
-  "teal"  : $color-teal-dark,
-  "blue"  : $color-blue-dark,
-  "indigo": $color-indigo-dark,
-  "purple": $color-purple-dark,
-  "pink"  : $color-pink-dark,
-  "brown" : $color-brown-dark
+  "red"    : $color-red-dark,
+  "orange" : $color-orange-dark,
+  "yellow" : $color-yellow-dark,
+  "green"  : $color-green-dark,
+  "teal"   : $color-teal-dark,
+  "blue"   : $color-blue-dark,
+  "indigo" : $color-indigo-dark,
+  "purple" : $color-purple-dark,
+  "plum"   : $color-plum-dark,
+  "pink"   : $color-pink-dark,
+  "fuchsia": $color-fuchsia-dark,
+  "brown"  : $color-brown-dark,
+
+  "primary": $color-primary-dark
 );
 
 // Neutral colors

@@ -16,10 +16,10 @@
   background-color: lighten($color-grey-dark, 40%);
 
   opacity: 1;
-  transition: padding .8s,
-              margin .8s,
-              font-size .8s,
-              opacity .8s;
+  transition: padding .3s,
+              margin .3s,
+              font-size .3s,
+              opacity .3s;
 
   &.dismissing {
     padding: 0 1em;

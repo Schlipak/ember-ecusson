@@ -1,0 +1,1 @@
+export { default } from 'ember-ecusson/components/e-navbar';

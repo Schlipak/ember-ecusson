@@ -37,7 +37,7 @@ export default Ember.Component.extend({
           this.destroy();
           this.send('destroy');
         }
-      }, 850);
+      }, 350);
     },
 
     destroy: function() {

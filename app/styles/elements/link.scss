@@ -22,13 +22,15 @@ a {
     height: 1px;
 
     background-color: currentColor;
+    opacity: 0;
 
     transform: scaleX(0);
-    transition: transform .2s;
+    transition: transform .2s, opacity .2s;
     will-change: width;
   }
 
-  &:hover:after {
+  &:hover:after, &:focus:after {
     transform: scaleX(1);
+    opacity: 1;
   }
 }

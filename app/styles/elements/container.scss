@@ -7,7 +7,9 @@ $--alignments: (
   "end": flex-end,
   "center": center,
   "base": baseline,
-  "stretch": stretch
+  "stretch": stretch,
+  "around": space-around,
+  "between": space-between
 );
 
 .container {
@@ -45,5 +47,25 @@ $--alignments: (
     }
 
     $i: $i + 1;
+  }
+
+  &.fixed {
+    position: fixed;
+
+    &.top {
+      top: 0;
+    }
+
+    &.left {
+      left: 0;
+    }
+
+    &.bottom {
+      bottom: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
   }
 }

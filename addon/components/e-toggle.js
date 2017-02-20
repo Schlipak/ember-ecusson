@@ -10,22 +10,22 @@ export default Ember.Component.extend({
   disabled: false,
   active: false,
 
-  click: function() {
+  click: Ember.computed('active', function() {
     const disabled = this.get('disabled');
     const state = this.get('active');
 
     if (!disabled) {
       this.set('active', !state);
     }
-  }.property('active'),
+  }),
 
-  disabledClass: function() {
+  disabledClass: Ember.computed('disabled', function() {
     const state = this.get('disabled');
     if (state) {
       return "disabled";
     }
     return "";
-  }.property('disabled'),
+  }),
 
   actions: {
     toggleClass: (params, e) => {

@@ -3,7 +3,7 @@ import layout from '../templates/components/e-checkbox';
 
 export default Ember.Component.extend({
   layout,
-  
+
   tagName: 'label',
   classNames: ['checkbox'],
 
@@ -12,16 +12,16 @@ export default Ember.Component.extend({
 
   icon: 'fa-check',
 
-  disabledClass: function() {
+  disabledClass: Ember.computed('disabled', function() {
     const state = this.get('disabled');
     if (state) {
       return "disabled";
     }
     return "";
-  }.property('disabled'),
+  }),
 
-  click: function() {
+  click: Ember.computed('checked', function() {
     const state = this.get('checked');
     this.set('checked', !state);
-  }.property('checked')
+  })
 });

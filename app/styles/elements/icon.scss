@@ -3,7 +3,9 @@
 //
 
 .icon {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 1em;
   height: 1em;

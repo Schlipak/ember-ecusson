@@ -28,6 +28,10 @@ button, .button {
   @include no-select;
   @include moz-button-style-fix;
 
+  &.nobreak {
+    white-space: nowrap;
+  }
+
   &:hover, &:focus {
     background-color: lighten($color-white-off-dark, 10%);
   }
@@ -54,7 +58,7 @@ button, .button {
     }
 
     &.basic {
-      background-color: $color-white;
+      background-color: transparent;
       color: lighten($color-black, 20%);
       border-color: lighten($color-black, 20%);
 
@@ -71,8 +75,39 @@ button, .button {
     } //! &.basic
   } //! &.black
 
-  &.basic {
+  &.white {
     background-color: $color-white;
+    color: $color-black !important;
+
+    &:hover, &:focus {
+      background-color: $color-white-off;
+    }
+
+    &:active {
+      background-color: $color-white-off-dark;
+    }
+
+    &.basic {
+      background-color: transparent;
+      color: $color-white !important;
+      border-color: $color-white;
+
+      &:hover, &:focus {
+        background-color: $color-white;
+        border-color: $color-white;
+        color: $color-black !important;
+      }
+
+      &:active {
+        background-color: $color-white-off-dark;
+        border-color: $color-white-off-dark;
+        color: $color-black !important;
+      }
+    } //! &.basic
+  } //! &.white
+
+  &.basic {
+    background-color: transparent;
     border-width: .15em;
     border-style: solid;
 
@@ -125,7 +160,7 @@ button, .button {
       }
 
       &.basic {
-        background-color: $color-white;
+        background-color: transparent;
         color: $light;
         border-color: $light;
 
@@ -166,7 +201,7 @@ button, .button {
     }
 
     &.basic {
-      background-color: $color-white;
+      background-color: transparent;
       color: $light;
       border-color: $light;
 

@@ -22,10 +22,27 @@ export default Ember.Component.extend({
   _destroyed: false,
 
   actions: {
-    bindDataSource: function() {
+    bindDataSource: Ember.on('didInsertElement', function() {
       this.attrs.bindDataSource(this);
-    }.on('didInsertElement')
+    })
   },
+
+  _checkDataIntegrity: Ember.on('didInsertElement', function() {
+    const value = this.get('value');
+    const maxValue = this.get('maxValue');
+    const indeterminate = this.get('indeterminate');
+
+    if (value < 0) {
+      this.set('value', 0);
+    }
+    if (value > maxValue) {
+      this.set('value', maxValue);
+    }
+
+    if (!indeterminate) {
+      this.setProgress(this.get('value'));
+    }
+  }),
 
   didInsertElement: function() {
     const dataSourceCallback = this.get('bindDataSource');
@@ -38,29 +55,31 @@ export default Ember.Component.extend({
     this.set('_destroyed', true);
   },
 
-  indeterminateClass: function() {
+  indeterminateClass: Ember.computed('indeterminate', function() {
     const state = this.get('indeterminate');
     if (state) {
       return 'indeterminate';
     }
     return '';
-  }.property('indeterminate'),
+  }),
 
-  currentColor: function() {
-    if (this.get('completed') && !this.get('indeterminate')) {
-      return this.get('completedColor');
+  currentColor: Ember.computed('completed', 'indeterminate', 'color', 'completedColor',
+    function() {
+      if (this.get('completed') && !this.get('indeterminate')) {
+        return this.get('completedColor');
+      }
+      return this.get('color');
     }
-    return this.get('color');
-  }.property('completed', 'indeterminate', 'color', 'completedColor'),
+  ),
 
-  completedClass: function() {
+  completedClass: Ember.computed('completed', 'indeterminate', function() {
     if (this.get('completed') && !this.get('indeterminate')) {
       return 'completed';
     }
     return '';
-  }.property('completed', 'indeterminate'),
+  }),
 
-  currentText: function() {
+  currentText: Ember.computed('completed', 'indeterminate', function() {
     if (this.get('indeterminate')) {
       return this.get('indeterminateText');
     }
@@ -68,14 +87,14 @@ export default Ember.Component.extend({
       return this.get('completedText');
     }
     return this.get('text');
-  }.property('completed', 'indeterminate'),
+  }),
 
-  widthStyle: Ember.computed('min-width', function() {
+  widthStyle: Ember.computed('min-width', 'value', function() {
     const value = this.get('value');
     const width = (value / this.get('maxValue')) * 100;
 
     return Ember.String.htmlSafe(`min-width: ${width}%`);
-  }).property('value'),
+  }),
 
   percent: function() {
     const value = this.get('value');
@@ -84,18 +103,18 @@ export default Ember.Component.extend({
     return ~~((value / maxValue) * 100);
   },
 
-  percentString: function() {
+  percentString: Ember.computed('value', function() {
     const percent = this.percent();
 
     return `${percent}%`;
-  }.property('value'),
+  }),
 
-  stepsString: function() {
+  stepsString: Ember.computed('value', function() {
     const step = this.get('value');
     const total = this.get('maxValue');
 
     return `${step}/${total}`;
-  }.property('value'),
+  }),
 
   setProgress: function(newVal) {
     if (this.get('_destroyed')) {

@@ -13,11 +13,11 @@ export default Ember.Component.extend({
   name: 'ecusson-radio-default',
   icon: 'fa-circle',
 
-  disabledClass: function() {
+  disabledClass: Ember.computed('disabled', function() {
     const state = this.get('disabled');
     if (state) {
       return "disabled";
     }
     return "";
-  }.property('disabled')
+  })
 });

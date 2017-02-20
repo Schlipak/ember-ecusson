@@ -22,6 +22,16 @@ form {
     justify-content: center;
     align-items: stretch;
 
+    &.horizontally.padded {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+
+    &.vertically.padded {
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+
     &:not(:last-child) {
       border-bottom: 1px solid transparentize($color-black, .92);
     }
