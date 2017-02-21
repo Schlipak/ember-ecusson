@@ -101,7 +101,7 @@ nav.navbar {
         transition: opacity .4s;
 
         &:not(.secondary) {
-          filter: grayscale(100%) brightness(125%);
+            filter: grayscale(100%) #{"brightness(125%)"};
         }
 
         &.secondary {
