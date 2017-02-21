@@ -1,0 +1,66 @@
+//
+// Dropdown component for Ecusson CSS
+//
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+
+  button {
+    overflow: visible !important;
+  }
+
+  .contents {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    max-height: 80vh;
+    min-width: calc(100% - .2em);
+
+    margin: .5em .1em;
+    padding: 0;
+
+    white-space: nowrap;
+
+    background-color: $color-white;
+    border-radius: $sizing-element-border-radius;
+    @include webkit-border-radius-fix;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: top;
+
+    transition: opacity .3s, transform .3s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &.top {
+      top: auto;
+      bottom: 100%;
+
+      transform-origin: bottom;
+    }
+
+    a, .button {
+      margin: 0;
+
+      &.primary:not(.basic) {
+        color: $color-white;
+      }
+    } //! a, .button
+
+    &.open {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    // opacity: .3;
+  } //! .contents
+
+  .footer {
+
+  }
+}

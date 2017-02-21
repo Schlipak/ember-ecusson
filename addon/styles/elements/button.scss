@@ -131,6 +131,10 @@ button, .button {
     }
   }
 
+  &.square {
+    border-radius: 0em !important;
+  }
+
   > .icon {
     margin: 0 .25em;
     pointer-events: none;
