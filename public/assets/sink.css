@@ -1,0 +1,139 @@
+html, body {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body > .ember-view {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 4em 0;
+  box-sizing: border-box;
+
+  background: #34495e;
+}
+
+.sink {
+  display: block;
+  position: relative;
+  width: 80%;
+
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 1em 2em -1em rgba(0, 0, 0, .3);
+}
+
+.sink > h1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  margin: .15em 0;
+  padding: .5em 0;
+  font-family: "Expletus Sans", serif;
+  font-weight: normal;
+  font-size: 3em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.sink > h1 > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.sink > h1 > a:after {
+  display: none;
+}
+
+.sink > h1 > a > img {
+  margin-right: .25em;
+}
+
+.sink > section {
+  display: block;
+  position: relative;
+  padding: 1em 2em;
+}
+
+.sink > section:not(:last-child) {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.sink > section > h2 {
+  font-family: "Merriweather Sans", sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: .4em 0;
+  font-size: 1.2em;
+}
+
+.sink > section > .content > h3 {
+  font-family: "Lato", sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: normal;
+  margin: 0;
+  font-size: 1em;
+}
+
+.sink > section > .content > h4 {
+  font-family: "Lato", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: normal;
+  margin: 0;
+  font-size: .9em;
+}
+
+.sink > section > .content > .elements {
+  padding-top: .5em;
+  padding-bottom: 2em;
+}
+
+.sink > section > .content > .elements > .row {
+  padding: .3em 0;
+}
+
+.sink > section > .content > .elements > .row > *:not(.divider) {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.sink > section > .content > .elements > .row > .modal {
+  margin: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .ember-view {
+    padding: 0;
+  }
+
+  .sink {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .sink > section {
+    padding: 1em 1em;
+  }
+}
