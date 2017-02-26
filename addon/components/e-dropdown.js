@@ -120,5 +120,14 @@ export default Ember.Component.extend({
       return 'top';
     }
     return '';
+  }),
+
+  caretClass: Ember.computed('top', function() {
+    const state = this.get('top');
+
+    if (state) {
+      return 'fa-caret-up';
+    }
+    return 'fa-caret-down';
   })
 });

@@ -1,0 +1,182 @@
+//
+// File Upload component for Ecusson CSS
+//
+
+.dropzone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  border: none;
+  border-radius: $sizing-element-border-radius;
+  box-shadow: inset 0 0 2em transparentize($color-night-blue-dark, .95);
+
+  transition: box-shadow .5s;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent .5em,
+      rgba(0, 0, 0, .05) .5em,
+      rgba(0, 0, 0, .05) 1em
+    );
+
+    opacity: 0;
+    transition: opacity .5s;
+
+    z-index: -1;
+  }
+
+  &.dz-started {
+    justify-content: flex-start;
+  }
+
+  &.dz-drag-hover {
+    border: none;
+    box-shadow: inset 0 0 4em transparentize($color-night-blue-dark, .8);
+
+    &:before {
+      opacity: 1;
+    }
+
+    .dz-message {
+      opacity: .75;
+      transform: scale(.85);
+    }
+  }
+
+  .dz-message {
+    color: transparentize($color-night-blue, .35);
+
+    transform: scale(1);
+    transform-origin: center;
+
+    transition: transform .5s, opacity .5s;
+    pointer-events: none;
+
+    @include no-select;
+
+    .button {
+      margin-top: 1em;
+      pointer-events: all;
+    }
+  }
+
+  .dz-preview.dz-image-preview {
+    background: transparent;
+  }
+
+  .dz-preview {
+    border-radius: $sizing-element-border-radius !important;
+
+    .dz-image {
+      border-radius: $sizing-element-border-radius !important;
+
+      img {
+        filter: none;
+        transform: scale(1);
+
+        transition: transform .4s, opacity .4s;
+      }
+    }
+
+    &:hover .dz-image img {
+      filter: none;
+      transform: scale(1.2);
+      opacity: .6;
+    }
+
+    &.dz-file-preview {
+      margin-left: 28.5px;
+      margin-right: 28.5px;
+
+      .dz-image {
+        max-width: 95px;
+
+        background: lighten($color-indigo, 5%);
+        overflow: visible;
+
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 0;
+          height: 0;
+
+          top: 0;
+          right: 0;
+
+          border-style: solid;
+          border-width: 25px 0 0 25px;
+          border-color: $color-white-off
+                        transparent
+                        transparent
+                        lighten($color-indigo, 20%);
+        }
+      }
+    }
+
+    .dz-details {
+      top: auto;
+      bottom: 0;
+
+      .dz-size, .dz-filename {
+        span {
+          padding: .2em .5em !important;
+
+          background: transparentize($color-white, .5);
+          border-radius: $sizing-element-border-radius !important;
+          border: none !important;
+
+          &:hover {
+            border: none;
+          }
+        }
+      }
+    } //! .dz-details
+
+    .dz-progress .dz-upload {
+      background: lighten($color-blue, 20%) !important;
+    }
+
+    .dz-error-message {
+      display: block;
+      top: calc(100% + 2px);
+      left: 50%;
+
+      transform: translate3d(-50%, 0, 0) scale(.9);
+
+      text-align: center;
+      border-radius: $sizing-element-border-radius;
+      background: $color-red-dark;
+
+      transition: opacity .3s, transform .3s;
+
+      &:after {
+        border-bottom-color: $color-red-dark;
+      }
+    }
+
+    &:hover .dz-error-message {
+      transform: translate3d(-50%, 0, 0) scale(1);
+    }
+  } //! .dz-preview
+
+  &.dz-browser-not-supported {
+    .dz-message {
+      display: none;
+    }
+  }
+}

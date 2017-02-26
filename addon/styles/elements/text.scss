@@ -14,3 +14,7 @@ body {
 *::-moz-selection {
   background: lighten($color-blue, 40%) !important;
 }
+
+.no-select {
+  @include no-select;
+}

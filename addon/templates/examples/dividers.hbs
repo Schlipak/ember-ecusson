@@ -1,0 +1,98 @@
+<section>
+  <h2>
+    <div class="green tag">Element</div>
+    <div class="yellow infos tag" title="[NOTE] Still in development design wise">WIP</div>
+    Dividers
+  </h2>
+  <div class="content">
+
+    <h3>Dividers can be used to separate different content <code>.horizontal.divider</code></h3>
+    <h4>
+      For better alignment, it is advised to wrap the divided content with a <code>.horizontal.container</code> for horizontal dividers, and a <code>.horizontal.container</code> for vertical dividers.
+    </h4>
+      <div class="elements">
+        <div class="row">
+          <div class="vertical container">
+            <h4>Something</h4>
+            <div class="horizontal divider"></div>
+            <h4>Something else</h4>
+          </div>
+        </div>
+      </div>
+
+      <h3>Dividers can be vertical <code>.vertical.divider</code></h3>
+      <div class="elements">
+        <div class="row">
+          <div class="horizontal container">
+            <button class="button red big">Left</button>
+            <div class="vertical divider"></div>
+            <button class="button blue big">Right</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>Dividers can contain another element</h3>
+      <div class="elements">
+        <div class="row">
+          <div class="vertical inline container">
+            <button class="green button">Option A</button>
+            <div class="horizontal divider">
+              <span>OR</span>
+            </div>
+            <button class="blue button">Option B</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="vertical container">
+            <h4>Something</h4>
+            <div class="horizontal divider">
+              <a href="#" class="pink tag">A link tag</a>
+            </div>
+            <h4>Something else</h4>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="horizontal container">
+            <button class="button red big">Left</button>
+            <div class="vertical divider">
+              <span>OR</span>
+            </div>
+            <button class="button blue big">Right</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>
+        Dividers can be light colored to show over a dark background
+        <code>.light</code>
+      </h3>
+      <div class="elements">
+        <div class="row">
+          <div class="vertical rounded padded container background black main-center">
+            <h3>To be</h3>
+            <div class="horizontal divider light">
+              <span>OR</span>
+            </div>
+            <h3>Not to be</h3>
+          </div>
+        </div>
+      </div>
+
+      <h3>
+        Dividers can be used as invisible spacers
+        <code>.spacer</code>
+      </h3>
+      <div class="elements">
+        <div class="row">
+          <div class="horizontal container">
+            <button class="button red">Left</button>
+            <div class="vertical spacer divider"></div>
+            <button class="button blue">Right</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>

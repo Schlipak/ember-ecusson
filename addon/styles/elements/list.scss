@@ -1,0 +1,37 @@
+//
+// List element for Ecusson class
+//
+
+ul, ol {
+  display: block;
+  position: relative;
+
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: .2em 0;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: relative;
+      width: 7px;
+      height: 2px;
+      margin: 0 7px;
+      box-sizing: content-box;
+
+      border-radius: $sizing-element-border-radius;
+      background-color: currentColor;
+      opacity: .75;
+    }
+  }
+}

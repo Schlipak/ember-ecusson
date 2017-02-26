@@ -1,0 +1,125 @@
+<section>
+  <h2>
+    <div class="green tag">Element</div>
+    Inputs and forms
+  </h2>
+
+  <div class="content">
+
+    <h3>Inputs allow the user to enter data <code>label.input > span + input</code></h3>
+    <h4>Inputs must be nested into a <code>label</code>. This way, labels do not require a <code>for</code> attribute, and the input can be natively selected by clicking anywhere on the box.</h4>
+    <div class="elements">
+      <div class="row">
+        <label class="input">
+          <span>E-mail address</span>
+          <input type="email" name="email" placeholder="john.doe@example.com">
+        </label>
+      </div>
+    </div>
+
+    <h3>Inputs can be required <code>label.required.input</code></h3>
+    <h4>Don't forget to also add the <code>required</code> attribute to the nested input element or this will only have a cosmetic effect</h4>
+    <div class="elements">
+      <div class="row">
+        <label class="required input">
+          <span>Name</span>
+          <input type="name" name="text" placeholder="John Doe" required>
+        </label>
+      </div>
+    </div>
+
+    <h3>Inputs can show prefixes or suffixes <code>label.input > .{prefix|suffix} > input + span</code></h3>
+    <div class="elements">
+      <div class="row">
+        <label class="input">
+          <span>Website URL</span>
+          <span class="prefix">
+            <span>http://</span>
+            <input type="text" name="websiteUrl" placeholder="www.example.com">
+          </span>
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="input">
+          <span>Something with a suffix idk</span>
+          <span class="suffix">
+            <input type="text" name="something" placeholder="Lorem ipsum dolor sit yadda yadda">
+            <span>The suffix</span>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <h3>
+      Inputs can inform that their contents are invalid <code>label.invalid.input > span.error</code>
+    </h3>
+    <h4>Put the <code>span.error</code> at the end of your <code>.input</code> contents</h4>
+    <div class="elements">
+      <div class="row">
+        <label class="invalid required input">
+          <span>E-mail address</span>
+          <input type="text" name="emailAddress" placeholder="john.doe@example.com" required>
+          <span class="error">This is an error message explaining what went wrong</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Inputs can smoothly transition between valid and invalid states</h3>
+    <h4>Simply add or remove the <code>.invalid</code> class dynamically</h4>
+    <div class="elements">
+      <div class="row">
+        {{#e-toggle
+          style="on-red off-green"
+          actionName="toggleClass"
+          params="#exampleInvalidateInput invalid"
+        }}
+          Toggle invalid state
+        {{/e-toggle}}
+      </div>
+      <div class="row">
+        <label class="required input" id="exampleInvalidateInput">
+          <span>Username</span>
+          <span class="prefix">
+            <span>@</span>
+            <input type="text" name="firstName" placeholder="john_doe" required>
+          </span>
+          <span class="error">Usernames can only contain letters, numbers, dashes and underscores</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Forms are a collection of inputs and buttons</h3>
+    <h4>Use <code>form > .row</code> to wrap each form rows</h4>
+    <div class="elements">
+      <div class="row">
+        <form action="#" method="post">
+          <div class="row">
+            <label class="required input">
+              <span>First name</span>
+              <input type="text" name="firstName" placeholder="John" required>
+            </label>
+            <label class="required input">
+              <span>Last name</span>
+              <input type="text" name="lastName" placeholder="Doe" required>
+            </label>
+          </div>
+          <div class="row">
+            <label class="input">
+              <span>Website URL</span>
+              <span class="prefix">
+                <span>http://</span>
+                <input type="text" name="websiteUrl" placeholder="www.example.com">
+              </span>
+            </label>
+          </div>
+          <div class="row controls">
+            <button type="button" name="sumitFormData" class="big teal expand button">Submit</button>
+            <button type="reset" class="big black expand button">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>

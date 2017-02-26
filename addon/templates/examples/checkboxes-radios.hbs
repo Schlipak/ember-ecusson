@@ -1,0 +1,365 @@
+<section>
+  <h2>
+    <div class="tag blue">Component</div>
+    Checkboxes and radios
+  </h2>
+  <div class="content">
+
+    <h3>
+      Checkboxes allow the user to check or uncheck options
+      <code>&#123;&#123;e-checkbox&#125;&#125;</code>
+    </h3>
+    <h4>The initial value of the checkbox can be controlled with the <code>checked</code> property</h4>
+    <div class="elements">
+      <div class="row">
+        {{e-checkbox}}
+      </div>
+    </div>
+
+    <h3>
+      Checkboxes can contain a label
+      <code>&#123;&#123;#e-checkbox&#125;&#125; Label text &#123;&#123;/e-checkbox&#125;&#125;</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-checkbox}}
+          The label text
+        {{/e-checkbox}}
+      </div>
+    </div>
+
+    <h3>
+      Checkboxes can have their label on the left
+      <code>labelLeft=true</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-checkbox labelLeft=true}}
+          This label is on the left
+        {{/e-checkbox}}
+      </div>
+    </div>
+
+    <h3>
+      Checkboxes can be colorful
+      <code>color="{color}"</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{e-checkbox checked=true color="red"}}
+        {{e-checkbox checked=true color="orange"}}
+        {{e-checkbox checked=true color="yellow"}}
+        {{e-checkbox checked=true color="green"}}
+        {{e-checkbox checked=true color="teal"}}
+        {{e-checkbox checked=true color="blue"}}
+        {{e-checkbox checked=true color="indigo"}}
+        {{e-checkbox checked=true color="purple"}}
+        {{e-checkbox checked=true color="pink"}}
+        {{e-checkbox checked=true color="brown"}}
+        {{e-checkbox checked=true color="black"}}
+      </div>
+    </div>
+
+    <h3>
+      Checkboxes can grow and shrink to fit their context
+    </h3>
+    <div class="elements">
+      <div class="row">
+        <h1>
+          {{#e-checkbox color="teal"}}
+            Nested in h1
+          {{/e-checkbox}}
+        </h1>
+      </div>
+      <div class="row">
+        <h6>
+          {{#e-checkbox color="purple"}}
+            Nested in h6
+          {{/e-checkbox}}
+        </h6>
+      </div>
+    </div>
+
+    <h3>
+      Checkboxes can contain a custom icon
+      <code>icon="{icon class}"</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{e-checkbox
+          checked=true
+          color="red"
+          icon="fa-times"
+        }}
+        {{e-checkbox
+          checked=true
+          color="orange"
+          icon="fa-check-circle"
+        }}
+        {{e-checkbox
+          checked=true
+          color="yellow"
+          icon="fa-bolt"
+        }}
+      </div>
+    </div>
+
+    <h3>
+      Checkboxes can have different sizes
+      <code>class="{size class}"</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-checkbox
+          checked=true color="red"
+          class="tiny"
+        }}
+          Tiny
+        {{/e-checkbox}}
+        {{#e-checkbox
+          checked=true color="orange"
+          class="small"
+        }}
+          Small
+        {{/e-checkbox}}
+        {{#e-checkbox
+          checked=true color="yellow"
+          class="regular"
+        }}
+          Regular
+        {{/e-checkbox}}
+        {{#e-checkbox
+          checked=true color="green"
+          class="big"
+        }}
+          Big
+        {{/e-checkbox}}
+        {{#e-checkbox
+          checked=true color="teal"
+          class="large"
+        }}
+          Large
+        {{/e-checkbox}}
+      </div>
+    </div>
+
+    <h3>
+      Checkboxes can be disabled
+      <code>disabled=true</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-checkbox
+          disabled=true
+        }}
+          Disabled checkbox
+        {{/e-checkbox}}
+
+        {{#e-checkbox
+          disabled=true
+          checked=true
+        }}
+          Checked disabled checkbox
+        {{/e-checkbox}}
+      </div>
+    </div>
+
+    <h3>
+      Radios lets the user select one of many choices
+      <code>&#123;&#123;#e-radio&#125;&#125; Label text &#123;&#123;/e-radio&#125;&#125;</code>
+    </h3>
+    <h4>
+      Custom icons are not supported for the Radio component due to alignment issues on Webkit
+    </h4>
+    <div class="elements">
+      <div class="row">
+        {{#e-radio}}
+          Label text
+        {{/e-radio}}
+      </div>
+    </div>
+
+    <h3>
+      Radios with the same <code>name</code> property naturally interact with each other
+    </h3>
+    <h4>Do not rely on the default <code>name</code> value, you probably will want to explicitly set this property for the component to behave properly</h4>
+    <div class="elements">
+      <div class="row">
+        {{#e-radio
+          name="radioExample"
+        }}
+          Choice 1
+        {{/e-radio}}
+        {{#e-radio
+          name="radioExample"
+        }}
+          Choice 2
+        {{/e-radio}}
+        {{#e-radio
+          name="radioExample"
+        }}
+          Choice 3
+        {{/e-radio}}
+        {{#e-radio
+          name="radioExample"
+        }}
+          Choice 4
+        {{/e-radio}}
+      </div>
+    </div>
+
+    <h3>
+      Just like Checkboxes, Radios can display their label on the left
+      <code>labelLeft=true</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-radio
+          labelLeft=true
+        }}
+          Label on the left
+        {{/e-radio}}
+      </div>
+    </div>
+
+    <h3>
+      Radios can also be colorful
+      <code>color={color}</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{e-radio
+          checked=true
+          color="red"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="orange"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="yellow"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="green"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="teal"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="blue"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="indigo"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="purple"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="pink"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="brown"
+          name="radioColorExample"
+        }}
+        {{e-radio
+          color="black"
+          name="radioColorExample"
+        }}
+      </div>
+    </div>
+
+    <h3>Radios can shrink and grow to fit their context</h3>
+    <div class="elements">
+      <div class="row">
+        <h1>
+          {{#e-radio color="teal"}}
+            Nested in h1
+          {{/e-radio}}
+        </h1>
+      </div>
+      <div class="row">
+        <h6>
+          {{#e-radio color="purple"}}
+            Nested in h6
+          {{/e-radio}}
+        </h6>
+      </div>
+    </div>
+
+    <h3>
+      Radios can have different sizes
+      <code>class="{size class}"</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-radio
+          color="red"
+          class="tiny"
+          name="exampleRadioSize"
+        }}
+          Tiny
+        {{/e-radio}}
+        {{#e-radio
+          color="orange"
+          class="small"
+          name="exampleRadioSize"
+        }}
+          Small
+        {{/e-radio}}
+        {{#e-radio
+          color="yellow"
+          class="regular"
+          name="exampleRadioSize"
+        }}
+          Regular
+        {{/e-radio}}
+        {{#e-radio
+          color="green"
+          class="big"
+          name="exampleRadioSize"
+        }}
+          Big
+        {{/e-radio}}
+        {{#e-radio
+          color="teal"
+          class="large"
+          name="exampleRadioSize"
+        }}
+          Large
+        {{/e-radio}}
+      </div>
+    </div>
+
+    <h3>
+      Radios can be disabled
+      <code>disabled=true</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-radio
+          disabled=true
+          name="disabledRadioExample"
+        }}
+          Disabled radio
+        {{/e-radio}}
+
+        {{#e-radio
+          disabled=true
+          checked=true
+          name="disabledRadioExample"
+        }}
+          Checked disabled radio
+        {{/e-radio}}
+      </div>
+    </div>
+
+  </div>
+</section>

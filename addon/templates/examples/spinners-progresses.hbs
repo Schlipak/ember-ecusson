@@ -1,0 +1,215 @@
+<section>
+  <h2>
+    <div class="blue tag">Component</div>
+    Spinners and Progress bars
+  </h2>
+  <div class="content">
+
+    <h3>
+      Spinners can be used to show a short loading state
+      <code>&#123;&#123;e-spinner&#125;&#125;</code>
+    </h3>
+    <h4>The Spinner component can show a label using the <code>showLabel=boolean</code>, <code>label=string</code> and <code>doneLabel=string</code> properties.</h4>
+    <h4>Only use a Spinner during front-end processes or short server side requests</h4>
+    <div class="elements">
+      <div class="row">
+        {{e-spinner class='tiny' showLabel=false}}
+        {{e-spinner class='small' showLabel=false}}
+        {{e-spinner class='regular' showLabel=false}}
+        {{e-spinner class='big' showLabel=false}}
+        {{e-spinner class='large' showLabel=false}}
+      </div>
+      <div class="row">
+        {{e-spinner class='red' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='orange' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='yellow' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='green' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='teal' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='blue' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='indigo' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='plum' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='purple' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='pink' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='fuchsia' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='brown' label="Loading..." doneLabel="All done!"}}
+        {{e-spinner class='black' label="Loading..." doneLabel="All done!"}}
+      </div>
+    </div>
+
+    <h3>
+      Progress bars can show a determinate long loading state
+    </h3>
+    <h3>
+      <code>&#123;&#123;e-progress value='startValue' maxValue='...' text='Doing something' completedText='Done doing the thing' style='additional classes'&#125;&#125;</code>
+    </h3>
+    <h4>This should be used for heavy server requests, of which the progress is known</h4>
+    <h4>Note: The Progress component does not use the HTML5 <code>&lt;progress&gt;</code> element due to compatibility issues and the wildly varying implementations</h4>
+    <div class="elements">
+      <div class="row">
+        {{e-progress
+          value='0'
+          text='Uploading files'
+          completedText='Done'
+          bindDataSource=(action 'updateProgressExample')
+        }}
+      </div>
+    </div>
+
+    <h3>Progress bars can be colorful</h3>
+    <h4>You can specify the bar color with the <code>color</code> property, and the completed color with <code>completedColor</code></h4>
+    <div class="elements">
+      <div class="row">
+        {{e-progress
+          value='0'
+          color='orange' completedColor='blue'
+          text='Computing something'
+          completedText='Thing was computed successfully'
+          bindDataSource=(action 'updateProgressExample')
+        }}
+      </div>
+    </div>
+
+    <h3>
+      Progress bars can expand to fill their container
+      <code>style='expand'</code>
+    </h3>
+    <h4>The progress component must be wrapped in a <code>.container</code> for this to work</h4>
+    <div class="elements">
+      <div class="row">
+        <div class="horizontal container">
+          {{e-progress
+            value='0'
+            text='Reticulating Splines'
+            completedText='Splines reticulated'
+            color='pink' completedColor='purple'
+            style='expand'
+            bindDataSource=(action 'updateProgressExample')
+          }}
+        </div>
+      </div>
+    </div>
+
+    <h3>
+      Progress bars can show their progress percentage
+      <code>showPercent=true</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{e-progress
+          color='teal' completedColor='blue'
+          showPercent=true
+          text='Showing the progress value'
+          completedText='Still showing it'
+          bindDataSource=(action 'updateProgressExample')
+        }}
+      </div>
+    </div>
+
+    <h3>
+      Progress bars can also display their progress as steps
+      <code>showSteps=true</code>
+    </h3>
+    <h4>
+      Do not use both <code>showPercent</code> and <code>showSteps</code>
+    </h4>
+    <div class="elements">
+      <div class="row">
+        {{e-progress
+          color='indigo' completedColor='green'
+          maxValue='24'
+          showSteps=true
+          text='Uploading files'
+          completedText='Files were uploaded successfully'
+          bindDataSource=(action 'updateProgressExample')
+        }}
+      </div>
+    </div>
+
+    <h3>
+      Progress bars can be unlabeled
+      <code>showLabel=false</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{e-progress
+          showLabel=false
+          bindDataSource=(action 'updateProgressExample')
+        }}
+      </div>
+    </div>
+
+    <h3>
+      Unlabeled progress bars can still show their percentage or step
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{e-progress
+          showLabel=false
+          showPercent=true
+          bindDataSource=(action 'updateProgressExample')
+        }}
+      </div>
+    </div>
+
+    <h3>
+      Progress bars can also show an undetermined loading state
+      <code>indeterminate=true indeterminateText="Text shown while waiting"</code>
+    </h3>
+    <h4>This can be used during heavy server requests while the progress is unknown. This however is not ideal since not giving feedback during a long process can be frustrating to the user.</h4>
+    <div class="elements">
+      <div class="row">
+        {{e-progress
+          indeterminate=true
+          color='blue'
+          indeterminateText='Waiting for server response...'
+        }}
+      </div>
+    </div>
+
+    <h3>
+      Progress bars can be bound to any data source!
+    </h3>
+    <div class="elements">
+      <div class="row">
+        <div class="horizontal container main-center cross-end">
+
+          {{e-progress
+            color='plum' completedColor='green'
+            style='expand'
+            maxValue='24'
+            showSteps=true
+            text='Hours'
+            completedText='And another day!'
+            bindDataSource=(action 'progressHoursExample')
+          }}
+          <div class="vertical spacer divider">
+            <span class="large">:</span>
+          </div>
+          {{e-progress
+            color='indigo' completedColor='green'
+            style='expand'
+            maxValue='60'
+            showSteps=true
+            text='Minutes'
+            completedText='And another hour!'
+            bindDataSource=(action 'progressMinutesExample')
+          }}
+          <div class="vertical spacer divider">
+            <span class="large">:</span>
+          </div>
+          {{e-progress
+            color='blue' completedColor='green'
+            style='expand'
+            maxValue='60'
+            showSteps=true
+            text='Seconds'
+            completedText='And another minute!'
+            bindDataSource=(action 'progressSecondsExample')
+          }}
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -2,42 +2,118 @@
 // Spinner element for Ecusson
 //
 
+$spinner-size: 40;
+$spinner-dash-offset: 200;
+$spinner-animation-duration: 3s;
+
 .spinner {
-  display: inline-block;
+  display: block;
   position: relative;
-  width: 2em;
-  height: 2em;
   margin: .5em;
 
-  background-color: transparentize($color-black, .95);
+  color: $color-black;
 
-  border-width: .2em;
-  border-style: solid;
-  border-color: transparent;
-  border-top-color: transparentize($color-black, .1);
-  border-radius: 50%;
+  .svg {
+    position: relative;
+    
+    &:before {
+      content: "\f00c";
+      display: block;
+      position: absolute;
 
-  animation-name: animationSpinnerRotate;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-family: $font-icons;
+      font-size: 1.5em;
+
+      color: currentColor;
+      opacity: 0;
+
+      transition: opacity .3s;
+      transition-delay: .4s;
+    }
+  }
+
+  .circle.inner {
+    display: block;
+    position: relative;
+    width: 3em;
+    height: 3em;
+    margin: 0;
+    padding: 0;
+
+    circle {
+      stroke-dasharray: (3.14 * $spinner-size);
+      stroke-dashoffset: 0;
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+
+      transform-origin: center;
+
+      animation-name: animationSpinnerCircle;
+      animation-duration: $spinner-animation-duration;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+
+      stroke: $color-black;
+    }
+  } //! .circle.inner
+
+  &.done {
+    .circle.inner {
+      animation: none;
+
+      circle {
+        animation: none;
+
+        transition: stroke-dashoffset 1s;
+      }
+    }
+
+    .svg:before {
+      opacity: 1;
+    }
+  }
+
+  span {
+    display: inline-block;
+    position: relative;
+
+    margin-top: 1em;
+  }
 
   $i: 1;
   @each $kvp in $--std-colors-dark {
     &.#{nth($kvp, 1)} {
-      background-color: transparentize(nth($kvp, 2), .95);
-      border-top-color: transparentize(nth($kvp, 2), .1);
+      color: nth($kvp, 2);
+
+      .circle.inner circle {
+        stroke: transparentize(nth($kvp, 2), .1);
+      }
+
+      span {
+        color: darken(nth($kvp, 2), 20%);
+      }
     }
 
     $i: $i + 1;
   }
 }
 
-@keyframes animationSpinnerRotate {
-  from {
-    transform: rotateZ(0deg);
+@keyframes animationSpinnerCircle {
+  0% {
+    transform: rotate(0deg);
+    stroke-dashoffset: (0.66 * $spinner-size);
   }
-  to {
-    transform: rotateZ(360deg);
+  50% {
+    transform: rotate(720deg);
+    stroke-dashoffset: (3.14 * $spinner-size);
+  }
+  100% {
+    transform: rotate(1080deg);
+    stroke-dashoffset: (0.66 * $spinner-size);
   }
 }

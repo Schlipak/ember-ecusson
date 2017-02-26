@@ -86,7 +86,7 @@
   @each $kvp in $--std-colors {
     $class: nth($kvp, 1);
     $light: nth($kvp, 2);
-    $dark: darken(nth(nth($--std-colors-dark, $i), 2), 5%);
+    $dark: darken(nth(nth($--std-colors-dark, $i), 2), 10%);
 
     $amount: (100 - lightness($light)) - 5;
 

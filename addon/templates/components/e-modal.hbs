@@ -1,0 +1,17 @@
+<div class="modal-box">
+  <h2 class="title">{{title}}</h2>
+
+  <div class="contents">
+    {{yield}}
+  </div>
+
+  <div class="buttons horizontal container main-end cross-stretch">
+    <button class="button black" {{action 'close' false}}>Cancel</button>
+    <button class="right split button green" {{action 'close' true}}>
+      OK
+      <span class="sub">
+        <i class="icon fa fa-check"></i>
+      </span>
+    </button>
+  </div>
+</div>

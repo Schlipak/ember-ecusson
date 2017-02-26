@@ -1,0 +1,41 @@
+<section>
+  <h2>
+    <div class="tag yellow">WIP</div>
+    <div class="tag blue">Component</div>
+    Modals
+  </h2>
+  <div class="content">
+
+    <h3>Modals can ...</h3>
+    <div class="elements">
+      <div class="row">
+        <div class="horizontal container">
+          <button class="button" {{action 'modalExampleOpen'}}>Open modal</button>
+          <div class="vertical divider"></div>
+          <div class="horizontal padded rounded container background offwhite expand">
+            <span id="modalExampleMessage">Waiting for status...</span>
+          </div>
+        </div>
+
+        {{#e-modal
+          title="This is a modal message"
+          bind=(action "modalExampleBind")
+        }}
+          <span>You can put anything in here</span>
+          <div class="horizontal spacer divider"></div>
+          <label class="input">
+            <span>This is an input for something</span>
+            <input type="text" name="something" placeholder="Type something here" class="data" data-attr="value">
+          </label>
+          <div class="horizontal spacer divider"></div>
+          <div class="horizontal container main-start">
+            {{#e-checkbox}}
+              Check this, or not. I'm not your mom.
+            {{/e-checkbox}}
+          </div>
+        {{/e-modal}}
+      </div>
+    </div>
+
+  </div>
+</section>

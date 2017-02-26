@@ -15,8 +15,6 @@
   background-color: $color-white-off;
   color: $color-black;
 
-  @include no-select;
-
   &.black {
     background-color: lighten($color-black, 20%);
     color: $color-white;

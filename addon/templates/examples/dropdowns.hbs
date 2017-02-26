@@ -1,0 +1,63 @@
+<section>
+  <h2>
+    <div class="tag yellow">WIP</div>
+    <div class="tag blue">Component</div>
+    Dropdowns
+  </h2>
+  <div class="content">
+
+    <h3>
+      Dropdowns can allow the selection of an option among many
+      <code>&#123;&#123;#e-dropdown as |data|&#125;&#125; ... &#123;&#123;/e-dropdown&#125;&#125;</code>
+    </h3>
+    <h4>
+      <ul>
+        <li>Options are passed to the component as an array of option objects</li>
+        <li>Option objects have two fields: <code>label</code> and <code>value</code></li>
+        <li>The component yields some data:</li>
+        <ul>
+          <li><code>section</code> The name of the current yielded section</li>
+          <li><code>selectedOptionLabel</code> The label of the selected option</li>
+          <li><code>selectedOptionValue</code> The value of the selected option</li>
+        </ul>
+        <li>The yielded sections are:</li>
+        <ul>
+          <li><code>"button"</code> The content of the dropdown button</li>
+          <li><code>"footer"</code> The optional content at the end of the dropdown list</li>
+        </ul>
+        <li>With the <code>ember-truth-helpers</code> addon, sections can be tested with <code>&#123;&#123;#if (eq data.section "button")&#125;&#125;</code></li>
+      </ul>
+    </h4>
+    <h4>The direction the dropdown opens depends on how much space is available on screen</h4>
+    <div class="elements">
+      <div class="row">
+        {{#e-dropdown
+          options=(arr
+            (hash label="Français" value="fr")
+            (hash label="English" value="en")
+            (hash label="官话" value="cn")
+            (hash label="Español" value="es")
+            (hash label="Русский" value="ru")
+            (hash label="日本語" value="ja")
+          )
+          as |data|
+        }}
+          {{#if (eq data.section "button")}}
+            <i class="icon fa fa-globe"></i>
+            <span>
+              {{or data.selectedOptionLabel "Select a language"}}
+            </span>
+          {{else}}
+            <div class="horizontal divider no-bottom"></div>
+            <div class="vertical container main-start cross-stretch">
+              <a href="javascript:void(0)" class="small blue square button">
+                Help translate MyEcussonApp
+              </a>
+            </div>
+          {{/if}}
+        {{/e-dropdown}}
+      </div>
+    </div>
+
+  </div>
+</section>

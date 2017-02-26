@@ -21,6 +21,10 @@ $--alignments: (
     display: inline-flex;
   }
 
+  &.expand {
+    flex-grow: 1;
+  }
+
   &.horizontal {
     flex-direction: row;
   }
@@ -67,5 +71,45 @@ $--alignments: (
     &.right {
       right: 0;
     }
+  }
+
+  &.rounded {
+    border-radius: $sizing-element-border-radius;
+  }
+
+  &.padded {
+    padding: .5em 1em;
+  }
+
+  $i: 1;
+  @each $kvp in $--std-colors {
+    $class: nth($kvp, 1);
+    $color: nth($kvp, 2);
+
+    &.background.#{$class} {
+      background-color: $color;
+
+      color: color-contrast($color, $color-black, $color-white);
+    }
+
+    $i: $i + 1;
+  }
+
+  &.background.black {
+    background-color: $color-black;
+
+    color: $color-white;
+  }
+
+  &.background.grey {
+    background-color: $color-grey;
+
+    color: $color-black;
+  }
+
+  &.background.offwhite {
+    background-color: $color-white-off;
+
+    color: $color-black;
   }
 }

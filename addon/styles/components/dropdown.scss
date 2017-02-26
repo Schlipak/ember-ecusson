@@ -25,7 +25,8 @@
 
     background-color: $color-white;
     border-radius: $sizing-element-border-radius;
-    @include webkit-border-radius-fix;
+    box-shadow: 0 0 2em transparentize($color-black, .8);
+    outline: none;
 
     overflow-x: hidden;
     overflow-y: auto;
@@ -36,6 +37,8 @@
 
     transition: opacity .3s, transform .3s;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    z-index: 500;
 
     &.top {
       top: auto;

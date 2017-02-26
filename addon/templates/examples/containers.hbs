@@ -1,0 +1,204 @@
+<section>
+  <h2>
+    <div class="tag infos yellow" title="[NOTE] Flex-wrap? Flex-direction reverse?">WIP</div>
+    <div class="tag green">Element</div>
+    Containers
+  </h2>
+  <div class="content">
+
+    <h3>
+      Containers are used to lay out elements in a page
+      <code>.horizontal.container</code>
+    </h3>
+    <h4>
+      Containers align elements to <code>main-axis: start, cross-axis: center</code> by default
+    </h4>
+    <div class="elements">
+      <div class="row">
+        <div class="horizontal container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>
+      The container alignment can be controlled with the <code>.main-{align}</code> and <code>.cross-{align}</code> classes
+    </h3>
+    <h4>
+      Possible values are <code>start|end|center|base|stretch</code>
+    </h4>
+    <h4>
+      <code>.main-base</code> and <code>.main-stretch</code> have the same effect as <code>.main-start</code>
+    </h4>
+    <div class="elements">
+      <div class="row">
+        <code>.main-start</code>
+        <div class="horizontal main-start container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+      <div class="row">
+        <code>.main-end</code>
+        <div class="horizontal main-end container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+      <div class="row">
+        <code>.main-center</code>
+        <div class="horizontal main-center container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <code>.cross-start</code>
+        <div class="horizontal cross-start container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+      <div class="row">
+        <code>.cross-end</code>
+        <div class="horizontal cross-end container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+      <div class="row">
+        <code>.cross-center</code>
+        <div class="horizontal cross-center container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+      <div class="row">
+        <code>.cross-base</code>
+        <div class="horizontal cross-base container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+      <div class="row">
+        <code>.cross-stretch</code>
+        <div class="horizontal cross-stretch container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>
+      Containers can lay out their content vertically
+      <code>.vertical.container</code>
+    </h3>
+    <h4>The same alignment classes apply for vertical containers, but remember the axis are reversed</h4>
+    <div class="elements">
+      <div class="row">
+        <div class="vertical cross-start container">
+          <button class="tiny button">Tiny</button>
+          <button class="small button">Small</button>
+          <button class="regular button">Regular</button>
+          <button class="big button">Big</button>
+          <button class="large button">Large</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>
+      Containers can be inline
+      <code>.inline.vertical.container</code>
+    </h3>
+    <h4>By default, containers work on block-level, and expand to take as much horizontal space as possible. They can however be made inline to have them shrink to the minimum size</h4>
+    <div class="elements">
+      <div class="row">
+        <div class="inline vertical container">
+          <button class="button blue">This would expand to fill the</button>
+          <div class="horizontal divider">
+            <span class="tag">container width</span>
+          </div>
+          <button class="button red">without the <code class="inverted">.inline</code> class</button>
+        </div>
+      </div>
+    </div>
+
+    <h3>
+      Containers can have a background color
+      <code>.background.{color}</code>
+    </h3>
+    <h4>The content color automatically adjusts for a better contrast</h4>
+    <div class="elements">
+      <div class="row">
+        <div class="horizontal container main-center background red">Red</div>
+        <div class="horizontal container main-center background orange">Orange</div>
+        <div class="horizontal container main-center background yellow">Yellow</div>
+        <div class="horizontal container main-center background green">Green</div>
+        <div class="horizontal container main-center background teal">Teal</div>
+        <div class="horizontal container main-center background blue">Blue</div>
+        <div class="horizontal container main-center background indigo">Indigo</div>
+        <div class="horizontal container main-center background plum">Plum</div>
+        <div class="horizontal container main-center background purple">Purple</div>
+        <div class="horizontal container main-center background pink">Pink</div>
+        <div class="horizontal container main-center background fuchsia">Fuchsia</div>
+        <div class="horizontal container main-center background brown">Brown</div>
+        <div class="horizontal container main-center background black">Black</div>
+        <div class="horizontal container main-center background white">White</div>
+      </div>
+    </div>
+
+    <h3>
+      Containers can be rounded
+      <code>.rounded</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        <div class="horizontal container main-center background black rounded">
+          Rounded container
+        </div>
+      </div>
+    </div>
+
+    <h3>
+      Containers can be padded
+      <code>.padded</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        <div class="horizontal padded container main-center background blue">
+          Padded container
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

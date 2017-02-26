@@ -1,0 +1,150 @@
+<section>
+  <h2>
+    <div class="blue tag">Component</div>
+    Toggles
+  </h2>
+
+  <div class="content">
+
+    <h3>
+      Toggles can be used to toggle options on and off
+      <code>
+        &#123;&#123;#e-toggle style='additional style'&#125;&#125;
+          Label content
+        &#123;&#123;/e-toggle&#125;&#125;
+      </code>
+    </h3>
+    <h4>The Toggle component encapsulates a standard HTML checkbox, so its basic functionality does not require JavaScript</h4>
+    <div class="elements">
+      <div class="row">
+        {{#e-toggle style='regular'}}
+          Make my profile private
+        {{/e-toggle}}
+      </div>
+    </div>
+
+    <h3>
+      A Toogle component can be customized with the <code>.on-{color}</code> and <code>.off-{color}</code> style
+      <code>style="{color style}"</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        <div class="row">
+          {{#e-toggle style='on-green off-red'}}
+            Custom colors
+          {{/e-toggle}}
+        </div>
+      </div>
+    </div>
+
+    <h3>
+      A Toggle component can be made more explicit by showing
+      <i class="icon fa fa-times"></i> and <i class="icon fa fa-check"></i> icons
+      <code>style='explicit'</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-toggle style='explicit'}}
+          Explicit states
+        {{/e-toggle}}
+      </div>
+    </div>
+
+    <h3>Toggles resize according to their context</h3>
+    <div class="elements">
+      <div class="row">
+        <h1>
+          {{#e-toggle}}
+            Nested in a h1
+          {{/e-toggle}}
+        </h1>
+        <h6>
+          {{#e-toggle}}
+            Nested in a h6
+          {{/e-toggle}}
+        </h6>
+      </div>
+    </div>
+
+    <h3>
+      Toggles can have their labels on the left
+      <code>labelLeft=true</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-toggle labelLeft=true}}
+          Left positioned label
+        {{/e-toggle}}
+      </div>
+    </div>
+
+    <h3>
+      The starting state of a Toggle can be set with the <code>active</code> property
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-toggle
+          active=true
+          style='on-pink off-blue'
+        }}
+          Active by default
+        {{/e-toggle}}
+      </div>
+    </div>
+
+    <h3>
+      Toggles can have different sizes
+      <code>class="{size class}"</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-toggle
+          style='off-red on-green'
+          class='tiny'
+        }}
+          Tiny
+        {{/e-toggle}}
+        {{#e-toggle
+          style='off-orange on-teal'
+          class='small'
+        }}
+          Small
+        {{/e-toggle}}
+        {{#e-toggle
+          style='off-yellow on-blue'
+          class='regular'
+        }}
+          Regular
+        {{/e-toggle}}
+        {{#e-toggle
+          style='off-green on-purple'
+          class='big'
+        }}
+          Big
+        {{/e-toggle}}
+        {{#e-toggle
+          style='off-teal on-pink'
+          class='large'
+        }}
+          Large
+        {{/e-toggle}}
+      </div>
+    </div>
+
+    <h3>
+      Toggles can be disabled
+      <code>disabled=true</code>
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-toggle disabled=true}}
+          Disabled toggle
+        {{/e-toggle}}
+        {{#e-toggle disabled=true active=true}}
+          Disabled active toggle
+        {{/e-toggle}}
+      </div>
+    </div>
+
+  </div>
+</section>

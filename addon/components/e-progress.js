@@ -21,11 +21,7 @@ export default Ember.Component.extend({
 
   _destroyed: false,
 
-  actions: {
-    bindDataSource: Ember.on('didInsertElement', function() {
-      this.attrs.bindDataSource(this);
-    })
-  },
+  bindDataSource: null,
 
   _checkDataIntegrity: Ember.on('didInsertElement', function() {
     const value = this.get('value');

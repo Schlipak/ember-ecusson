@@ -1,0 +1,184 @@
+<section>
+  <h2>
+    <div class="blue tag">Component</div>
+    Alerts
+  </h2>
+  <div class="content">
+
+    <h3>
+      Alerts can show feedback messages to the user
+      <code>&#123;&#123;#e-alert&#125;&#125; Alert message &#123;&#123;/e-alert&#125;&#125;</code>
+    </h3>
+    <h4>Dismissed alerts automatically destroy their component and remove themselves from the DOM. You can turn off this behaviour and keep them hidden using <code>destroyOnDismiss=false</code></h4>
+    <div class="elements">
+      <div class="row">
+        {{#e-alert}}
+          Default alert
+        {{/e-alert}}
+      </div>
+    </div>
+
+    <h3>Alerts can be colored</h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-alert class='error'}}
+          Colored alert <code>class='red|error'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='orange'}}
+          Colored alert <code>class='orange'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='warning'}}
+          Colored alert <code>class='yellow|warning'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='success'}}
+          Colored alert <code>class='green|success'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='teal'}}
+          Colored alert <code>class='teal'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='info'}}
+          Colored alert <code>class='blue|info'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='indigo'}}
+          Colored alert <code>class='indigo'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='purple'}}
+          Colored alert <code>class='purple'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='pink'}}
+          Colored alert <code>class='pink'</code>
+        {{/e-alert}}
+
+        {{#e-alert class='brown'}}
+          Colored alert <code>class='brown'</code>
+        {{/e-alert}}
+      </div>
+    </div>
+
+    <h3>
+      Alerts can contain an icon
+      <code>icon='{icon-name}'</code> (without the <code>fa-</code> prefix)
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-alert
+          class='error'
+          icon='exclamation-circle'
+        }}
+          Something bad happened :(
+        {{/e-alert}}
+
+        {{#e-alert
+          class='warning'
+          icon='exclamation-triangle'
+        }}
+          This username is already taken
+        {{/e-alert}}
+
+        {{#e-alert
+          class='success'
+          icon='check-circle'
+        }}
+          File uploaded successfully
+        {{/e-alert}}
+
+        {{#e-alert
+          class='info'
+          icon='info-circle'
+        }}
+          People won't be able to find your profile using your e-mail address if your account is set to private
+        {{/e-alert}}
+      </div>
+    </div>
+
+    <h3>
+      Alerts can contain complex content, such as containers and various elements and components
+    </h3>
+    <div class="elements">
+      <div class="row">
+        {{#e-alert
+          class='error'
+          icon='exclamation-circle'
+        }}
+          <div class="vertical container cross-start">
+            <h4>Fatal error :(</h4>
+            <span>
+              An unexpected server error occured while processing your request. Please try again later.
+            </span>
+          </div>
+        {{/e-alert}}
+
+        {{#e-alert
+          class='warning'
+          icon='exclamation-triangle'
+        }}
+          <div class="vertical container cross-start">
+            <h4>The username you entered is invalid</h4>
+            <span>Valid usernames consist of:</span>
+            <ul>
+              <li>Uppercase and lowercase letters</li>
+              <li>Numbers</li>
+              <li>Dashes and underscores</li>
+            </ul>
+          </div>
+        {{/e-alert}}
+
+        {{#e-alert
+          class='success'
+          icon='check-circle'
+        }}
+          <div class="vertical container cross-start">
+            <h4>File uploaded successfully</h4>
+            <span>Saved as <code>my_file_20170211.pdf</code></span>
+            <div class="horizontal padded container small">
+              <button class="green button">View</button>
+              <div class="vertical spacer divider"></div>
+              <button class="button">Undo</button>
+            </div>
+          </div>
+        {{/e-alert}}
+
+        {{#e-alert
+          class='info'
+          icon='info-circle'
+        }}
+          <div class="vertical container cross-start">
+            <h4>Your account was set to private</h4>
+            <span>While private, users won't be able to:</span>
+            <ul>
+              <li>Find your account using your e-mail address</li>
+              <li>Read your posts and see your uploaded pictures</li>
+              <li>Comment and like your posts and uploaded pictures</li>
+            </ul>
+            <span>Only users you have manually accepted will have access to your account</span>
+          </div>
+        {{/e-alert}}
+      </div>
+    </div>
+
+    <h3>
+      <div class="tag yellow infos" title="[NOTE] Not yet available">WIP</div>
+      Alerts can be automatically dismissed
+    </h3>
+    <div class="elements">
+      <div class="row">
+        <button class="left split button" {{action "spawnDemoAlert"}}>
+          <i class="sub icon fa fa-plus"></i>
+          <span>Spawn alert</span>
+        </button>
+      </div>
+      <div class="row" id="exampleAlertContainer">
+
+      </div>
+    </div>
+
+  </div>
+</section>
