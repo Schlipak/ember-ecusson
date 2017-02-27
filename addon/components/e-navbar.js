@@ -28,7 +28,7 @@ export default Ember.Component.extend({
 
   willDestroyElement: function() {
     document.removeEventListener('scroll', () => this._onPageScroll());
-  }
+  },
 
   _onPageScroll: function() {
     Ember.run(this, function() {
