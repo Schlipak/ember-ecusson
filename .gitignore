@@ -16,5 +16,7 @@
 npm-debug.log*
 testem.log
 
+#addon/templates/application.hbs
+
 app/templates/
 app/routes/
