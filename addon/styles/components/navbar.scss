@@ -185,7 +185,7 @@ nav.navbar {
     li {
       margin: 0 .5em;
 
-      li:before {
+      &:before {
 		display: none;
       }
 
