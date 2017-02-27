@@ -26,6 +26,10 @@ export default Ember.Component.extend({
     document.addEventListener('scroll', () => this._onPageScroll());
   },
 
+  willDestroyElement: function() {
+    document.removeEventListener('scroll', () => this._onPageScroll());
+  }
+
   _onPageScroll: function() {
     Ember.run(this, function() {
       const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
