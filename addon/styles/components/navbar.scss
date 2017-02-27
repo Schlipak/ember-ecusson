@@ -63,10 +63,6 @@ nav.navbar {
         background-color: $color-primary;
       }
 
-      li:before {
-		display: none;
-      }
-
       li .button {
         &:hover, &:focus, &:active {
           color: $color-white;
@@ -188,6 +184,10 @@ nav.navbar {
 
     li {
       margin: 0 .5em;
+
+      li:before {
+		display: none;
+      }
 
       a {
         display: inline-block;
