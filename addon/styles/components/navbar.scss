@@ -63,6 +63,10 @@ nav.navbar {
         background-color: $color-primary;
       }
 
+      li:before {
+		display: none;
+      }
+
       li .button {
         &:hover, &:focus, &:active {
           color: $color-white;
