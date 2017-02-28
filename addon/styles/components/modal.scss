@@ -23,7 +23,8 @@
   z-index: 999;
 
   .modal-box {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 50%;
     max-height: 90%;
@@ -68,6 +69,10 @@
 
       border-top: 1px solid transparentize($color-black, .8);
       background-color: $color-white;
+
+      .button {
+        height: 2.5em;
+      }
     }
   } //! .box
 
