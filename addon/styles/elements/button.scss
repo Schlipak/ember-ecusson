@@ -225,9 +225,10 @@ button, .button {
 
 // Split buttons
 button.split, .button.split {
-  display: inline-flex;
+  display: inline-block;
   flex-direction: row;
   align-items: center;
+  flex-wrap: nowrap;
 
   padding: 0;
   overflow: hidden;
@@ -270,6 +271,8 @@ button.split, .button.split {
     padding: .6em;
 
     min-height: 1em;
+
+    background-color: rgba(0, 0, 0, .1);
   } //! .sub
 
   &.basic {
@@ -288,10 +291,6 @@ button.split, .button.split {
       border-right-width: 0;
     } //! &.right
   } //! &.basic
-}
-
-.sub {
-  background-color: rgba(0, 0, 0, .1);
 }
 
 a.button {
