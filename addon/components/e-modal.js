@@ -66,7 +66,7 @@ export default Ember.Component.extend({
 
   open: function() {
     this.send('open');
-    return new Promise((resolve, reject) => {
+    return new Ember.RSVP.Promise((resolve, reject) => {
       this.set('_resolve', resolve);
       this.set('_reject', reject);
     });
