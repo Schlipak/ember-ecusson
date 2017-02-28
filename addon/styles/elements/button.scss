@@ -226,11 +226,8 @@ button, .button {
 // Split buttons
 button.split, .button.split {
   display: inline-block;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
-
   padding: 0;
+
   overflow: hidden;
   @include webkit-border-radius-fix;
 
@@ -273,6 +270,7 @@ button.split, .button.split {
     min-height: 1em;
 
     background-color: rgba(0, 0, 0, .1);
+    border-radius: $sizing-element-border-radius;
   } //! .sub
 
   &.basic {

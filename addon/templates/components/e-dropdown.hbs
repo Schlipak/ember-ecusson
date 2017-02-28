@@ -2,13 +2,15 @@
 
   <button {{action 'toggle'}} class="right split button">
 
-    {{yield
-      (hash
-        section="button"
-        selectedOptionLabel=selectedOptionLabel
-        selectedOptionValue=selectedOptionValue
-      )
-    }}
+    <span>
+      {{yield
+        (hash
+          section="button"
+          selectedOptionLabel=selectedOptionLabel
+          selectedOptionValue=selectedOptionValue
+        )
+      }}
+    </span>
 
     <i class="sub icon fa {{caretClass}}"></i>
   </button>
