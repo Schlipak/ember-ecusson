@@ -2,6 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   _modalRef: null,
+  _modalBasicRef: null,
+  _greetings: {
+    'en': 'Hi there!',
+    'fr': 'Salut!',
+    'es': '¡Hola!',
+    'ru': 'Всем привет!',
+    'cn': '你好！',
+    'ja': 'こんにちは！'
+  },
 
   actions: {
 
@@ -40,6 +49,13 @@ export default Ember.Controller.extend({
       }
     },
 
+    modalBasicExampleBind: function(obj) {
+      const modal = obj;
+      if (modal) {
+        this.set('_modalBasicRef', modal);
+      }
+    },
+
     modalExampleOpen: function() {
       const modal = this.get('_modalRef');
       if (modal) {
@@ -47,18 +63,43 @@ export default Ember.Controller.extend({
 
         promise.then((o) => {
           console.log(o);
-          this._modalExampleUpdateMessage(o);
+          this._modalExampleUpdateMessage("modalExampleMessage", o);
         }, (o) => {
           console.log(o);
-          this._modalExampleUpdateMessage(o);
+          this._modalExampleUpdateMessage("modalExampleMessage", o);
         });
       }
+    },
+
+    modalBasicExampleOpen: function() {
+      const modal = this.get('_modalBasicRef');
+      if (modal) {
+        let promise = modal.open();
+
+        promise.then((o) => {
+          console.log(o);
+          this._modalExampleUpdateMessage("modalBasicExampleMessage", o);
+        }, (o) => {
+          console.log(o);
+          this._modalExampleUpdateMessage("modalBasicExampleMessage", o);
+        });
+      }
+    },
+
+    exampleDropdownCallback: function(opt) {
+      const msgContainer = document.getElementById('dropdownExampleMessage');
+      const greetings = this.get('_greetings');
+      const greeting = greetings[opt.value] || "I don't speak this language :(";
+
+      let msg = `${greeting}<code>{label: "${opt.label}", value: "${opt.value}"}</code>`;
+
+      msgContainer.innerHTML = msg;
     }
 
   },
 
-  _modalExampleUpdateMessage: function(obj) {
-    const msgContainer = document.getElementById("modalExampleMessage");
+  _modalExampleUpdateMessage: function(target, obj) {
+    const msgContainer = document.getElementById(target);
 
     let successState = obj.success ? 'succeeded' : 'failed';
     let msg = `Promise ${successState} with message "${obj.message}"`;
@@ -66,12 +107,15 @@ export default Ember.Controller.extend({
     if (obj.success) {
       msg += " and data:<br/><ul>";
 
-      obj.data.forEach((data) => {
-        if (typeof data === 'string') {
-          data = `"${data}"`;
-        }
-        msg += `<li>${data}</li>`;
-      });
+      if (obj.data.length === 0) {
+        msg += "(nodata)";
+      } else {
+        obj.data.forEach((data) => {
+          if (typeof data === 'string') { data = `"${data}"`; }
+          msg += `<li>${data}</li>`;
+        });
+      }
+
       msg += '</ul>';
     }
 

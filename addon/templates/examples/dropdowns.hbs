@@ -31,31 +31,42 @@
     <h4>The direction the dropdown opens depends on how much space is available on screen</h4>
     <div class="elements">
       <div class="row">
-        {{#e-dropdown
-          options=(arr
-            (hash label="Français" value="fr")
-            (hash label="English" value="en")
-            (hash label="官话" value="cn")
-            (hash label="Español" value="es")
-            (hash label="Русский" value="ru")
-            (hash label="日本語" value="ja")
-          )
-          as |data|
-        }}
-          {{#if (eq data.section "button")}}
-            <i class="icon fa fa-globe"></i>
-            <span>
-              {{or data.selectedOptionLabel "Select a language"}}
-            </span>
-          {{else}}
-            <div class="horizontal divider no-bottom"></div>
-            <div class="vertical container main-start cross-stretch">
-              <a href="javascript:void(0)" class="small blue square button">
-                Help translate MyEcussonApp
-              </a>
-            </div>
-          {{/if}}
-        {{/e-dropdown}}
+        <div class="horizontal container">
+
+          {{#e-dropdown
+            options=(arr
+              (hash label="Français" value="fr")
+              (hash label="English" value="en")
+              (hash label="官话" value="cn")
+              (hash label="Español" value="es")
+              (hash label="Русский" value="ru")
+              (hash label="日本語" value="ja")
+              (hash label="Gobbledygook" value="gk")
+            )
+            onOptionSelected=(action "exampleDropdownCallback")
+            as |data|
+          }}
+            {{#if (eq data.section "button")}}
+              <i class="icon fa fa-globe"></i>
+              <span>
+                {{or data.selectedOptionLabel "Select a language"}}
+              </span>
+            {{else}}
+              <div class="horizontal divider no-bottom"></div>
+              <div class="vertical container main-start cross-stretch">
+                <a href="javascript:void(0)" class="small blue square button">
+                  Help translate MyEcussonApp
+                </a>
+              </div>
+            {{/if}}
+          {{/e-dropdown}}
+
+          <div class="vertical divider"></div>
+          <div class="horizontal padded rounded container background offwhite expand">
+            <span id="dropdownExampleMessage">(empty)</span>
+          </div>
+
+        </div>
       </div>
     </div>
 

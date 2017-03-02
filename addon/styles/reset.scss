@@ -1,0 +1,18 @@
+// Reset CSS for Ecusson CSS
+
+html, body {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html.noscroll {
+  overflow: hidden;
+
+  body {
+    overflow: hidden;
+  }
+}

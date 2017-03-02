@@ -1,6 +1,6 @@
 <div class="dropdown" role="menu">
 
-  <button {{action 'toggle'}} class="right split button">
+  <div {{action 'toggle'}} class="right split button nobreak">
 
     <span>
       {{yield
@@ -13,7 +13,7 @@
     </span>
 
     <i class="sub icon fa {{caretClass}}"></i>
-  </button>
+  </div>
 
   <div class="vertical inline container main-start cross-stretch contents {{topClass}} {{openClass}}" tabindex="-1">
     <div class="vertical buttons expand group">
@@ -22,7 +22,7 @@
         <a href="javascript:void(0)"
           class="button"
           value={{opt.value}}
-          {{action 'onOptionSelected' opt}}
+          {{action '_hasOptionSelected' opt}}
           role="menuitem"
         >
           {{opt.label}}

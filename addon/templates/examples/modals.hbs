@@ -6,11 +6,54 @@
   </h2>
   <div class="content">
 
-    <h3>Modals can ...</h3>
+    <h3>Modals provide a way to request information from the user, or show a high priority content</h3>
+    <h4>
+      Parameters:
+      <ul>
+        <li>
+          <code>title</code> String
+        </li>
+        <li>
+          <code>basic</code> Boolean
+        </li>
+        <li>
+          <code>bind</code> Action
+        </li>
+      </ul>
+    </h4>
+    <h4>The <code>e-modal</code> component yields the content of the modal box. You can put anything there.</h4>
+    <h4>The component <code>open</code> method returns a Promise, which settles it when the modal closes. The Promise is fulfilled when the modal is closed using the OK button, otherwise it is rejected.</h4>
+    <h4>
+      The Promise gets an object with the following fields:
+      <ul>
+        <li>
+          <code>success</code> Boolean
+        </li>
+        <li>
+          <code>message</code> String
+        </li>
+        <li>
+          <code>data</code> Array
+        </li>
+      </ul>
+    </h4>
+    <h4>
+      The Promise's <code>data</code> Array is dynamically filled with the modal content that are marked as data. These are HTML elements which have the <code>.data</code> class. Their value is retreived using the <code>data-attr</code> attribute.
+      <blockquote cite="#">
+        As an example, an element such as
+        <code>&lt;input type="text" value="Some text" class="data" data-attr="value"&gt;</code>
+        whill produce an entry in the data array containing <code>"Some text"</code>
+      </blockquote>
+    </h4>
+    <h4>Modals can be closed by clicking on the page dimmer, of by pressing <kbd>ESC</kbd></h4>
+
     <div class="elements">
       <div class="row">
         <div class="horizontal container">
-          <button class="button" {{action 'modalExampleOpen'}}>Open modal</button>
+          <button class="button nobreak" {{action 'modalExampleOpen'}}>
+            Open modal
+            <i class="icon fa fa-external-link"></i>
+          </button>
           <div class="vertical divider"></div>
           <div class="horizontal padded rounded container background offwhite expand">
             <span id="modalExampleMessage">Waiting for status...</span>
@@ -18,22 +61,86 @@
         </div>
 
         {{#e-modal
-          title="This is a modal message"
           bind=(action "modalExampleBind")
+          as |data|
         }}
-          <span>You can put anything in here</span>
-          <div class="horizontal spacer divider"></div>
-          <label class="input">
-            <span>This is an input for something</span>
-            <input type="text" name="something" placeholder="Type something here" class="data" data-attr="value">
-          </label>
-          <div class="horizontal spacer divider"></div>
-          <div class="horizontal container main-start">
-            {{#e-checkbox}}
-              Check this, or not. I'm not your mom.
-            {{/e-checkbox}}
-          </div>
+          {{#if (eq data.section "title")}}
+            This is a modal message
+          {{else if (eq data.section "content")}}
+            <span>You can put anything in here</span>
+            <div class="horizontal spacer divider"></div>
+            <label class="input">
+              <span>This is an input for something</span>
+              <input type="text" name="something" placeholder="Type something here" class="data" data-attr="value">
+            </label>
+            <div class="horizontal spacer divider"></div>
+            <div class="horizontal container main-start">
+              {{#e-checkbox}}
+                Check this, or not. I'm not your mom.
+              {{/e-checkbox}}
+            </div>
+          {{else}}
+            <div class="black button hover-red" {{action data.close false}}>
+              <i class="sub icon fa fa-times"></i>
+              <span>Cancel</span>
+            </div>
+            <div class="green button" {{action data.close true}}>
+              <i class="sub icon fa fa-check"></i>
+              <span>OK</span>
+            </div>
+          {{/if}}
         {{/e-modal}}
+      </div>
+    </div>
+
+    <h3>Modals can be simplified <code>basic=true</code></h3>
+    <div class="elements">
+      <div class="row">
+        <div class="horizontal container">
+          <button class="button nobreak" {{action 'modalBasicExampleOpen'}}>
+            Open modal
+            <i class="icon fa fa-external-link"></i>
+          </button>
+          <div class="vertical divider"></div>
+          <div class="horizontal padded rounded container background offwhite expand">
+            <span id="modalBasicExampleMessage">Waiting for status...</span>
+          </div>
+        </div>
+
+        {{#e-modal
+          basic=true
+          bind=(action "modalBasicExampleBind")
+          as |data|
+        }}
+          {{#if (eq data.section 'title')}}
+            <div class="vertical container main-between cross-center">
+              <span class="large">
+                <i class="icon fa fa-archive large"></i>
+              </span>
+              <div class="horizontal spacer divider tiny"></div>
+              <span>Archive old messages</span>
+            </div>
+          {{else if (eq data.section "content")}}
+            <div class="vertical container main-center">
+              <span>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</span>
+            </div>
+          {{else}}
+            <div class="vertical expand container main-center">
+              <div class="horizontal spacer divider"></div>
+              <div class="horizontal expand container main-center">
+                <div class="basic white rounded button hover-red" {{action data.close false}}>
+                  <i class="sub icon fa fa-times"></i>
+                  <span>No</span>
+                </div>
+                <div class="basic green rounded button" {{action data.close true}}>
+                  <i class="sub icon fa fa-check"></i>
+                  <span>Yes</span>
+                </div>
+              </div>
+            </div>
+          {{/if}}
+        {{/e-modal}}
+
       </div>
     </div>
 

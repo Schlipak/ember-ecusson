@@ -183,6 +183,92 @@ button, .button {
 
     $i: $i + 1;
   } //! @each
+
+  &.hover-black {
+    &:hover, &:focus {
+      background-color: lighten($color-black, 10%);
+      color: $color-white;
+    }
+
+    &:active {
+      background-color: $color-black;
+      color: $color-white;
+    }
+
+    &.basic {
+      &:hover, &:focus {
+        border-color: lighten($color-black, 20%);
+        background-color: lighten($color-black, 20%);
+        color: $color-white;
+      }
+
+      &:active {
+        background-color: lighten($color-black, 10%);
+        border-color: lighten($color-black, 10%);
+        color: $color-white;
+      }
+    } //! &.basic
+  } //! &.black
+
+  &.hover-white {
+    &:hover, &:focus {
+      color: $color-black !important;
+      background-color: $color-white-off;
+    }
+
+    &:active {
+      color: $color-black !important;
+      background-color: $color-white-off-dark;
+    }
+
+    &.basic {
+      &:hover, &:focus {
+        background-color: $color-white;
+        border-color: $color-white;
+        color: $color-black !important;
+      }
+
+      &:active {
+        background-color: $color-white-off-dark;
+        border-color: $color-white-off-dark;
+        color: $color-black !important;
+      }
+    } //! &.basic
+  } //! &.white
+
+  $i: 1;
+  @each $kvp in $--std-colors {
+    $light: nth($kvp, 2);
+    $dark: nth(nth($--std-colors-dark, $i), 2);
+
+    &.hover-#{nth($kvp, 1)} {
+      &:hover, &:focus {
+        background-color: $dark;
+        color: color-contrast($dark, $color-black, $color-white) !important;
+      }
+
+      &:active {
+        background-color: darken($dark, 10%);
+        color: color-contrast(darken($dark, 10%), $color-black, $color-white) !important;
+      }
+
+      &.basic {
+        &:hover, &:focus {
+          border-color: $light;
+          background-color: $light;
+          color: color-contrast($light, $color-black, $color-white) !important;
+        }
+
+        &:active {
+          background-color: $dark;
+          border-color: $dark;
+          color: color-contrast($dark, $color-black, $color-white) !important;
+        }
+      } //! &.basic
+    } //! hover-{color}
+
+    $i: $i + 1;
+  } //! @each
 }
 
 // Social network colored button styles
@@ -225,11 +311,19 @@ button, .button {
 
 // Split buttons
 button.split, .button.split {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+
   padding: 0;
+  white-space: nowrap;
 
   overflow: hidden;
   @include webkit-border-radius-fix;
+
+  span {
+    display: inline-block;
+  }
 
   &.right {
     padding-left: 1.2em;
@@ -262,7 +356,9 @@ button.split, .button.split {
   } //! &.left
 
   .sub {
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     height: 100%;
     padding: .6em;

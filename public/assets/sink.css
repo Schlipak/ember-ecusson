@@ -124,7 +124,7 @@ body > .ember-view {
 }
 
 @media only screen and (max-width: 900px) {
-  .ember-view {
+  body > .ember-view {
     padding: 0;
   }
 

@@ -6,10 +6,11 @@ export default Ember.Component.extend({
 
   tagName: 'div',
   classNames: ['modal'],
-  classNameBindings: ['off', 'opened'],
+  classNameBindings: ['off', 'opened', 'basic'],
 
   off: true,
   opened: false,
+  basic: false,
 
   bind: null,
 
@@ -21,7 +22,8 @@ export default Ember.Component.extend({
       if (succeeded) {
         const resolve = this.get('_resolve');
         if (resolve) {
-          const dataNodes = this.get('element').querySelectorAll('.data');
+          const queryResults = this.get('element').querySelectorAll('.data');
+          const dataNodes = Array.prototype.slice.call(queryResults);
           let dataArr = [];
 
           dataNodes.forEach((node) => {
@@ -53,14 +55,26 @@ export default Ember.Component.extend({
       this.set('opened', false);
       setTimeout(() => {
         this.set('off', true);
+        document.documentElement.classList.remove('noscroll');
       }, 450);
     },
 
     open: function() {
       this.set('off', false);
+      document.documentElement.classList.add('noscroll');
       setTimeout(() => {
         this.set('opened', true);
+        this.get('element').focus();
       }, 10);
+    }
+  },
+
+  keyDown(e) {
+    const key = e.keyCode || e.which;
+    if (key === 27) {
+      this.send('close', false);
+    } else if (key === 9) {
+      e.preventDefault();
     }
   },
 
@@ -74,8 +88,28 @@ export default Ember.Component.extend({
 
   didInsertElement: function() {
     const bindCallback = this.get('bind');
+
+    this.get('element').setAttribute('tabindex', 1);
     if (bindCallback) {
       bindCallback(this);
     }
-  }
+  },
+
+  cancelClass: Ember.computed('basic', function() {
+    const isBasic = this.get('basic');
+
+    if (isBasic) {
+      return 'white';
+    }
+    return 'black';
+  }),
+
+  basicClass: Ember.computed('basic', function() {
+    const isBasic = this.get('basic');
+
+    if (isBasic) {
+      return 'basic';
+    }
+    return '';
+  })
 });

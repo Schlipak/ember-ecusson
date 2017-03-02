@@ -1,13 +1,13 @@
 <section>
   <h2>
     <div class="green tag">Element</div>
-    <div class="tag infos yellow" title="[NOTE] How should we handle this? Should split sections be part of the button and thus trigger the button's click event? Should they be separate? (-> Wrap both in a container, akin to button groups)">WIP</div>
     Split buttons
   </h2>
   <div class="content">
 
     <h3>Buttons can have a secondary action <code>.split.button > .sub</code></h3>
     <h4>The action location is controlled with the <code>left</code> and <code>right</code> classes</h4>
+    <h4>For better cross-compatibility, it is advised to use a <code>div</code> element instead of a <code>button</code> element to wrap split buttons</h4>
     <div class="elements">
       <div class="row">
         <div class="left split button">
@@ -35,23 +35,6 @@
       </div>
     </div>
 
-    <h3>
-      <div class="tag infos red" title="[NOTE] Use button groups instead">Deprecated</div>
-      Split buttons can contain other buttons as secondary action
-    </h3>
-    <div class="elements">
-      <div class="row">
-        <div class="left split purple button">
-          <a href="#" class="pink sub button">Secondary</a>
-          Primary
-        </div>
-        <div class="right split teal button">
-          Primary
-          <a href="#" class="blue sub button">Secondary</a>
-        </div>
-      </div>
-    </div>
-
     <h3>Split buttons can be used to represent brands</h3>
     <div class="elements">
       <div class="row">
@@ -62,19 +45,6 @@
         <div class="right split button twitter">
           Twitter
           <i class="icon fa fa-twitter sub"></i>
-        </div>
-      </div>
-    </div>
-
-    <h3>
-      <div class="tag infos red" title="[NOTE] Use button groups instead">Deprecated</div>
-      Split buttons can be simplified
-    </h3>
-    <div class="elements">
-      <div class="row">
-        <div class="basic left split button">
-          <a href="#" class="basic blue sub button">Left</a>
-          Right
         </div>
       </div>
     </div>

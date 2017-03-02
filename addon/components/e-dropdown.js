@@ -24,9 +24,14 @@ export default Ember.Component.extend({
       this.send('_updatePosition');
     },
 
-    onOptionSelected: function(opt) {
+    _hasOptionSelected: function(opt) {
       this.set('selectedOption', opt);
       this.send('close');
+
+      const selectionCallback = this.get('onOptionSelected');
+      if (selectionCallback) {
+        selectionCallback(opt);
+      }
     },
 
     _sortOptions: function() {

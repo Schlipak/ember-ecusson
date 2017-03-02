@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
 
-  background-color: transparentize($color-black, .2);
+  background-color: transparentize($color-black, .15);
   border: none;
   outline: none;
 
@@ -22,6 +22,36 @@
   transition: opacity .4s;
 
   z-index: 999;
+
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: inherit;
+  }
+
+  &:before {
+    bottom: 100%;
+  }
+
+  &:after {
+    top: 100%;
+  }
+
+  .close.trigger {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 10;
+  }
 
   .modal-box {
     display: flex;
@@ -40,11 +70,13 @@
     border-radius: $sizing-element-border-radius;
     @include webkit-border-radius-fix;
 
-    transform: scale(.9);
+    transform: scale(.95);
     transform-origin: center;
     opacity: 0;
 
     transition: transform .4s, opacity .4s;
+
+    z-index: 200;
 
     h2.title {
       display: block;
@@ -73,7 +105,7 @@
       position: relative;
       width: 100%;
       margin: 0;
-      padding: .5em 1em;
+      padding: .75em 1em;
 
       box-sizing: border-box;
 
@@ -81,10 +113,14 @@
       background-color: $color-white;
 
       .button {
-        height: 2.5em;
+        margin: 0 .5em;
+
+        i.icon {
+          margin-left: 0;
+        }
       }
     }
-  } //! .box
+  } //! .modal-box
 
   &.opened {
     opacity: 1;
@@ -98,13 +134,38 @@
   &.off {
     display: none;
   }
-}
+
+  &.basic {
+    background-color: transparentize($color-black, .1);
+
+    .modal-box {
+      background-color: transparent;
+      color: $color-white;
+
+      h2.title {
+        border-bottom: none;
+        padding-left: 0;
+      }
+
+      .contents {
+        padding: 1em 0;
+      }
+
+      .buttons {
+        padding-right: 0;
+        border-top: none;
+        background-color: transparent;
+      }
+    }
+  }
+} //! .modal
 
 @media only screen and (max-device-width: 800px) {
-  .modal {
+  .modal:not(.basic) {
     .modal-box {
       width: 100%;
       max-width: 100%;
+      min-height: 100%;
       height: 100%;
 
       border-radius: 0;
