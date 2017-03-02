@@ -8,11 +8,11 @@ body {
 }
 
 *::selection {
-  background: lighten($color-blue, 40%) !important;
+  background: transparentize(lighten($color-blue, 30%), .5) !important;
 }
 
 *::-moz-selection {
-  background: lighten($color-blue, 40%) !important;
+  background: transparentize(lighten($color-blue, 30%), .5) !important;
 }
 
 .no-select {
