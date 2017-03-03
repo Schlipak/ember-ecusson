@@ -1,20 +1,21 @@
 <div class="overlay"></div>
-<div class="wrapper horizontal container main-between cross-center">
-  <a href="{{rootURL}}/" class="logo">
-    <span class="logo-container {{scrolledClass}}">
-      <img src="{{rootURL}}{{logo}}" alt="Logo" draggable="false">
-      <img src="{{rootURL}}{{scrolledLogo}}" alt="Logo" class="secondary" draggable="false">
-    </span>
-    <h1>
-      <span>{{title}}</span>
-    </h1>
-  </a>
-  <ul class="horizontal container main-end cross-center {{scrolledClass}}">
-    {{yield
-      (hash
-        scrolled=scrolled
-        buttonClass=scrolledButtonClass
-      )
-    }}
-  </ul>
+<div class="wrapper horizontal container main-center cross-center">
+  <div class="contents horizontal container main-between cross-center">
+    <a href="{{rootURL}}/" class="logo">
+      <span class="logo-container {{scrolledClass}}">
+        <img src="{{rootURL}}{{logo}}" alt="Logo" draggable="false">
+        <img src="{{rootURL}}{{scrolledLogo}}" alt="Logo" class="secondary" draggable="false">
+      </span>
+      <h1>
+        <span>{{title}}</span>
+      </h1>
+    </a>
+    <ul class="horizontal container main-end cross-center {{scrolledClass}}">
+      {{yield
+        (hash
+          scrolled=scrolled
+        )
+      }}
+    </ul>
+  </div>
 </div>

@@ -75,6 +75,37 @@ button, .button {
     } //! &.basic
   } //! &.black
 
+  &.night {
+    background-color: $color-night-blue-dark;
+    color: $color-white;
+
+    &:hover, &:focus {
+      background-color: darken($color-night-blue-dark, 5%);
+    }
+
+    &:active {
+      background-color: darken($color-night-blue-dark, 10%);
+    }
+
+    &.basic {
+      background-color: transparent;
+      color: $color-night-blue-dark;
+      border-color: $color-night-blue-dark;
+
+      &:hover, &:focus {
+        background-color: $color-night-blue-dark;
+        border-color: $color-night-blue-dark;
+        color: $color-white;
+      }
+
+      &:active {
+        background-color: darken($color-night-blue-dark, 5%);
+        border-color: darken($color-night-blue-dark, 5%);
+        color: $color-white;
+      }
+    } //! &.basic
+  } //! &.night
+
   &.white {
     background-color: $color-white;
     color: $color-black !important;

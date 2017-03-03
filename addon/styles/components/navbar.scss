@@ -6,13 +6,13 @@ nav.navbar {
   display: inline-block;
   position: fixed;
 
-  top: 1em;
-  left: 10%;
-  width: 80%;
+  top: 0em;
+  left: 0%;
+  width: 100%;
+  padding: 2em 0;
   box-sizing: border-box;
-  padding: 4em 5em;
 
-  color: $color-white;
+  color: $color-night-blue-dark;
   background-color: transparent;
   transform: translateZ(0);
 
@@ -32,8 +32,7 @@ nav.navbar {
     padding: 0;
     margin: 0;
 
-    background-color: $color-white-off;
-    border-radius: $sizing-element-border-radius;
+    background-color: lighten($color-white-off, 3%);
     box-shadow: 0 0   2em 0    transparent,
                 0 2em 4em -2em transparent;
 
@@ -47,26 +46,26 @@ nav.navbar {
     z-index: -1;
   }
 
+  .contents {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+  }
+
   &.scrolled {
-    padding: 0 1em;
+    padding: 0;
     color: $color-night-blue-dark;
 
     .overlay {
       transform: scaleY(1);
       box-shadow: 0 0   2em 0    transparentize($color-night-blue-dark, .9),
-                  0 2em 4em -2em transparentize($color-night-blue-dark, .5);
+                  0 2em 4em -1.5em transparentize($color-night-blue-dark, .75);
       transition-delay: .3s;
     }
 
     ul {
       a:after {
         background-color: $color-primary;
-      }
-
-      li .button {
-        &:hover, &:focus, &:active {
-          color: $color-white;
-        }
       }
     }
   }
@@ -78,6 +77,7 @@ nav.navbar {
     align-items: center;
 
     color: currentColor;
+    font-size: .85em;
 
     &:after {
       display: none;
@@ -128,7 +128,7 @@ nav.navbar {
     h1 {
       display: block;
       position: relative;
-      padding: .2em;
+      padding: 0 .2em;
       margin: 0;
 
       color: currentColor;
@@ -139,7 +139,7 @@ nav.navbar {
 
         transform: translateY(.1em);
 
-        font-size: 40px;
+        font-size: 1.5em;
         font-weight: normal;
 
         opacity: 0;
@@ -186,8 +186,14 @@ nav.navbar {
       margin: 0 .5em;
       padding: 0;
 
+      .button {
+        &:hover, &:focus, &:active {
+          color: $color-white !important;
+        }
+      }
+
       &:before {
-		display: none;
+		    display: none;
       }
 
       a {
@@ -203,9 +209,10 @@ nav.navbar {
           position: absolute;
           bottom: 0;
           left: 0;
-          height: .2em;
+          height: .25em;
 
-          color: $color-white;
+          color: $color-primary;
+          border-radius: $sizing-element-border-radius;
 
           transition: background-color .4s,
                       transform .2s,
@@ -213,7 +220,7 @@ nav.navbar {
         }
 
         &:not(.button) {
-          padding: 2em 1em;
+          padding: 1.75em 1em;
         }
 
         &.button {
@@ -221,8 +228,8 @@ nav.navbar {
         }
       } //! a
     } //! li
-  }
-}
+  } //! ul
+} //! nav.navbar
 
 @keyframes animationNavbarTitleColor {
   from {

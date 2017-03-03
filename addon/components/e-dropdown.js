@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/e-dropdown';
 
+// TODO: Return Promise?
+
 export default Ember.Component.extend({
   layout,
 

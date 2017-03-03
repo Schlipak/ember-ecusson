@@ -54,11 +54,4 @@ export default Ember.Component.extend({
     }
     return '';
   }),
-
-  scrolledButtonClass: Ember.computed('scrolled', function() {
-    if (this.get('scrolled')) {
-      return 'primary';
-    }
-    return 'white';
-  }),
 });

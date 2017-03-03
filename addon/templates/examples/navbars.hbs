@@ -1,23 +1,27 @@
 {{#e-navbar
-  title="Visibily"
+  title="MyEcussonApp"
   as |data|
 }}
   <li>
-    <a href="#">Services</a>
+    <a href="#">Features</a>
+  </li>
+  <li>
+    <a href="#">Pricing</a>
   </li>
   <li>
     <a href="#">Blog</a>
   </li>
   <li>
-    <a href="#">Equipe</a>
-  </li>
-  <li>
     <a href="#">Contact</a>
   </li>
+  <div class="vertical large spacer divider"></div>
   <li>
-    <a href="#" class="basic rounded {{data.buttonClass}} button">Créer un compte</a>
+    <a href="#">Log in</a>
   </li>
   <li>
-    <a href="#" class="basic rounded {{data.buttonClass}} button">Connexion</a>
+    <a href="#" class="basic rounded nobreak button {{if data.scrolled "primary" "night"}} hover-primary">
+      Get started
+      <i class="icon fa fa-arrow-right"></i>
+    </a>
   </li>
 {{/e-navbar}}
