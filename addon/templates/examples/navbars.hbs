@@ -2,26 +2,32 @@
   title="Ecusson CSS"
   as |data|
 }}
-  <li>
-    <a href="#">Features</a>
-  </li>
-  <li>
-    <a href="#">Pricing</a>
-  </li>
-  <li>
-    <a href="#">Blog</a>
-  </li>
-  <li>
-    <a href="#">Contact</a>
-  </li>
-  <div class="vertical large spacer divider"></div>
-  <li>
-    <a href="#">Log in</a>
-  </li>
-  <li>
-    <a href="#" class="basic rounded nobreak button {{if data.scrolled "primary" "night"}} hover-primary">
-      Get started
-      <i class="icon fa fa-arrow-right"></i>
-    </a>
-  </li>
+  {{#if (eq data.section "left")}}
+    <div class="button blue small rounded">Left additional content</div>
+  {{else if (eq data.section "main")}}
+    <li>
+      <a href="#">Features</a>
+    </li>
+    <li>
+      <a href="#">Pricing</a>
+    </li>
+    <li>
+      <a href="#">Blog</a>
+    </li>
+    <li>
+      <a href="#">Contact</a>
+    </li>
+    <div class="vertical large spacer divider"></div>
+    <li>
+      <a href="#">Log in</a>
+    </li>
+    <li>
+      <a href="#" class="basic rounded nobreak button {{if data.scrolled "primary" "night"}} hover-primary">
+        Get started
+        <i class="icon fa fa-arrow-right"></i>
+      </a>
+    </li>
+  {{else if (eq data.section "right")}}
+    <div class="button red small rounded">Right additional content</div>
+  {{/if}}
 {{/e-navbar}}

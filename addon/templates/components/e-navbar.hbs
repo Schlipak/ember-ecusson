@@ -1,5 +1,12 @@
 <div class="overlay"></div>
-<div class="wrapper horizontal container main-center cross-center">
+<div class="wrapper horizontal container main-between cross-center">
+  <div class="horizontal container main-start cross-center left">
+    {{yield (hash
+        scrolled=scrolled
+        section="left"
+      )
+    }}
+  </div>
   <div class="contents horizontal container main-between cross-center">
     <a href="{{rootURL}}/" class="logo">
       <span class="logo-container {{scrolledClass}}">
@@ -11,11 +18,18 @@
       </h1>
     </a>
     <ul class="horizontal container main-end cross-center {{scrolledClass}}">
-      {{yield
-        (hash
+      {{yield (hash
           scrolled=scrolled
+          section="main"
         )
       }}
     </ul>
+  </div>
+  <div class="horizontal container main-start cross-center right">
+    {{yield (hash
+        scrolled=scrolled
+        section="right"
+      )
+    }}
   </div>
 </div>
