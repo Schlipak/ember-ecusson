@@ -18,7 +18,7 @@ body > .ember-view {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: 4em 0;
+  padding: 0;
   box-sizing: border-box;
 
   background: #34495e;
@@ -28,46 +28,10 @@ body > .ember-view {
   display: block;
   position: relative;
   width: 80%;
+  padding-top: 10em;
 
   background: white;
-  border-radius: 5px;
   box-shadow: 0 1em 2em -1em rgba(0, 0, 0, .3);
-}
-
-.sink > h1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  margin: .15em 0;
-  padding: .5em 0;
-  font-family: "Expletus Sans", serif;
-  font-weight: normal;
-  font-size: 3em;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.8);
-
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-}
-
-.sink > h1 > a {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  color: inherit;
-  text-decoration: none;
-}
-
-.sink > h1 > a:after {
-  display: none;
-}
-
-.sink > h1 > a > img {
-  margin-right: .25em;
 }
 
 .sink > section {

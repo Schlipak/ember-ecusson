@@ -11,16 +11,22 @@ export default Ember.Component.extend({
     'dismissed'
   ],
 
-  destroyOnDismiss: true,
+  dismissed: false,
+  destroyOnDismiss: false,
+  timeout: 0,
 
   didInsertElement: function() {
-    // Set auto dismiss timeout
+    const timeout = this.get('timeout');
+
+    if (timeout > 0) {
+      setTimeout(() => {
+        this.send('dismiss');
+      }, timeout);
+    }
   },
 
   willDestroyElement: function() {
     this._super(...arguments);
-
-    console.log("Delete me here");
   },
 
   actions: {
@@ -30,9 +36,11 @@ export default Ember.Component.extend({
       }
 
       this.set('dismissing', true);
+
       setTimeout(() => {
         this.set('dismissing', false);
         this.set('dismissed', true);
+
         if (this.get('destroyOnDismiss')) {
           this.destroy();
           this.send('destroy');

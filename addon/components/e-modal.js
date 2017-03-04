@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   off: true,
   opened: false,
   basic: false,
+  dimmerDismiss: true,
 
   bind: null,
 
@@ -73,8 +74,6 @@ export default Ember.Component.extend({
     const key = e.keyCode || e.which;
     if (key === 27) {
       this.send('close', false);
-    } else if (key === 9) {
-      e.preventDefault();
     }
   },
 

@@ -12,7 +12,47 @@ export default Ember.Controller.extend({
     'ja': 'こんにちは！'
   },
 
+  alerts: new Ember.A(),
+
+  init() {
+    Ember.run.schedule('afterRender', this, () => {
+      const nodes = document.querySelectorAll('a');
+      const links = [].slice.call(nodes);
+
+      console.info(`Muting ${links.length} anchor links`);
+
+      links.forEach((link) => {
+        if (link.getAttribute('href') === '#') {
+          link.onclick = (e) => e.preventDefault();
+        }
+      });
+    });
+  },
+
   actions: {
+
+    createRandomNotification: function() {
+      const types = ['', 'info', 'warning', 'error', 'success'];
+      const icons = ['', 'info', 'warning', 'times', 'check'];
+      const messages  = [
+        'This is a test notification',
+        'Hello there!',
+        '*ding* You have a notification',
+        'This is a very long notification with a lot of content that shows how the notifications adapt their width'
+      ];
+
+      let notification = {
+        type: types[~~(Math.random() * types.length)],
+        icon: icons[~~(Math.random() * icons.length)],
+        message: messages[~~(Math.random() * messages.length)],
+        dismissed: false
+      };
+
+      let filtered = new Ember.A(this.get('alerts').rejectBy('dismissed', true));
+      this.set('alerts', filtered);
+
+      this.get('alerts').pushObject(notification);
+    },
 
     updateProgressExample: function(obj) {
       const progress = obj;

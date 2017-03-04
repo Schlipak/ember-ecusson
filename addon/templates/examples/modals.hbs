@@ -19,6 +19,9 @@
         <li>
           <code>bind</code> Action
         </li>
+        <li>
+          <code>dimmerDismiss</code> Boolean - Dismiss the modal when the dimmer is clicked
+        </li>
       </ul>
     </h4>
     <h4>The <code>e-modal</code> component yields the content of the modal box. You can put anything there.</h4>
@@ -110,6 +113,7 @@
         {{#e-modal
           basic=true
           bind=(action "modalBasicExampleBind")
+          dimmerDismiss=false
           as |data|
         }}
           {{#if (eq data.section 'title')}}

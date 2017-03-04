@@ -21,7 +21,7 @@ $--alignments: (
     display: inline-flex;
   }
 
-  &.expand {
+  &.expand, &.expanding {
     flex-grow: 1;
   }
 
@@ -55,6 +55,7 @@ $--alignments: (
 
   &.fixed {
     position: fixed;
+    z-index: 800;
 
     &.top {
       top: 0;

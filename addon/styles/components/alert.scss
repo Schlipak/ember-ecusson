@@ -2,6 +2,8 @@
 // Alert component for Ecusson CSS
 //
 
+$transition-duration: .3s;
+
 .alert {
   display: flex;
   justify-content: space-between;
@@ -16,16 +18,17 @@
   background-color: lighten($color-grey-dark, 40%);
 
   opacity: 1;
-  transition: padding .3s,
-              margin .3s,
-              font-size .3s,
-              opacity .3s;
+  overflow: hidden;
+  transition: padding $transition-duration,
+              margin $transition-duration,
+              opacity $transition-duration;
 
   &.dismissing {
-    padding: 0 1em;
+    padding: 0;
     margin: 0 .5em;
-    opacity: 0;
 
+    opacity: 0;
+    
     span.alert-message {
       font-size: 0;
     }
@@ -39,13 +42,29 @@
     display: none;
   }
 
+  &.raised {
+    box-shadow: 0 .5em 3em -1.5em currentColor;
+  }
+
+  &.sliding {
+    white-space: nowrap;
+
+    &.right {
+      transform-origin: right;
+    }
+  }
+
+  &.expand, &.expanding {
+    flex-grow: 1;
+  }
+
   span.alert-message {
     display: inline-flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 
-    transition: font-size .8s;
+    transition: font-size $transition-duration;
 
     i.icon {
       font-size: 1.3em;
@@ -65,7 +84,8 @@
 
     opacity: .6;
 
-    transition: font-size .8s, opacity .3s;
+    transition: font-size $transition-duration,
+                opacity $transition-duration;
 
     &:hover {
       opacity: 1;
@@ -86,7 +106,10 @@
   @each $kvp in $--std-colors {
     $class: nth($kvp, 1);
     $light: nth($kvp, 2);
-    $dark: darken(nth(nth($--std-colors-dark, $i), 2), 10%);
+    $dark: desaturate(
+      darken(nth(nth($--std-colors-dark, $i), 2), 20%),
+      20%
+    );
 
     $amount: (100 - lightness($light)) - 5;
 

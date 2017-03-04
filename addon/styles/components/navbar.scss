@@ -12,7 +12,7 @@ nav.navbar {
   padding: 2em 0;
   box-sizing: border-box;
 
-  color: $color-night-blue-dark;
+  color: lighten($color-black, 20%);
   background-color: transparent;
   transform: translateZ(0);
 
@@ -54,13 +54,13 @@ nav.navbar {
 
   &.scrolled {
     padding: 0;
-    color: $color-night-blue-dark;
+    color: lighten($color-black, 10%);
 
     .overlay {
       transform: scaleY(1);
       box-shadow: 0 0   2em 0    transparentize($color-night-blue-dark, .9),
                   0 2em 4em -1.5em transparentize($color-night-blue-dark, .75);
-      transition-delay: .3s;
+      transition-delay: .15s;
     }
 
     ul {

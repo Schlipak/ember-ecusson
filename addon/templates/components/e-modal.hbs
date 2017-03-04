@@ -1,4 +1,4 @@
-<div class="close trigger" {{action 'close' false}}></div>
+<div class="close trigger" onclick={{if dimmerDismiss (action 'close' false)}}></div>
 <div class="modal-box">
   <h2 class="title">
     {{yield (hash

@@ -170,15 +170,30 @@
     </h3>
     <div class="elements">
       <div class="row">
-        <div class="left split button" {{action "spawnDemoAlert"}}>
+        <div class="left split button" {{action "createRandomNotification"}}>
           <i class="sub icon fa fa-plus"></i>
           <span>Spawn alert</span>
         </div>
-      </div>
-      <div class="row" id="exampleAlertContainer">
-
       </div>
     </div>
 
   </div>
 </section>
+
+<div class="fixed vertical padded container bottom right main-end cross-stretch">
+  {{#if alerts}}
+    {{#each alerts as |alert|}}
+      {{#e-alert
+        icon=(or alert.icon "bell")
+        class=(concat alert.type " raised sliding right")
+        timeout=5000
+        dismissed=alert.dismissed
+      }}
+        <div class="vertical padded expanding container">
+          {{alert.message}}
+        </div>
+        <div class="vertical tiny spacer divider"></div>
+      {{/e-alert}}
+    {{/each}}
+  {{/if}}
+</div>

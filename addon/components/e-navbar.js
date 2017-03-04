@@ -20,7 +20,7 @@ export default Ember.Component.extend({
 
   scrolled: false,
 
-  triggerOffset: 100,
+  triggerOffset: 80,
 
   didInsertElement: function() {
     document.addEventListener('scroll', () => this._onPageScroll());
