@@ -208,7 +208,6 @@ nav.navbar {
 
       a {
         display: inline-flex;
-        align-items: center;
         position: relative;
 
         text-transform: uppercase;
@@ -235,6 +234,7 @@ nav.navbar {
         }
 
         &.button {
+          align-self: center;
           transition: color .4s, background-color .4s, border-color .4s;
         }
       } //! a
