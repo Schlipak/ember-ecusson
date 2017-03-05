@@ -1,5 +1,5 @@
 <div class="overlay"></div>
-<div class="wrapper horizontal container main-between cross-center">
+<div class="wrapper horizontal container main-between cross-stretch">
   <div class="horizontal container main-start cross-center left">
     {{yield (hash
         scrolled=scrolled
@@ -7,7 +7,7 @@
       )
     }}
   </div>
-  <div class="contents horizontal container main-between cross-center">
+  <div class="contents horizontal container main-between cross-stretch">
     <a href="{{rootURL}}/" class="logo">
       <span class="logo-container {{scrolledClass}}">
         <img src="{{rootURL}}{{logo}}" alt="Logo" draggable="false">

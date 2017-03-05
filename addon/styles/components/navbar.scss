@@ -180,6 +180,9 @@ nav.navbar {
   } //! a.logo
 
   ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
     position: relative;
     padding: 0;
     margin: 0;
@@ -187,6 +190,9 @@ nav.navbar {
     list-style: none;
 
     li {
+      display: inline-flex;
+      justify-content: center;
+      align-items: stretch;
       margin: 0 .5em;
       padding: 0;
 
@@ -201,7 +207,8 @@ nav.navbar {
       }
 
       a {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         position: relative;
 
         text-transform: uppercase;
