@@ -104,10 +104,6 @@ nav.navbar {
 
         transition: opacity .4s;
 
-        &:not(.secondary) {
-            filter: grayscale(100%) #{"brightness(125%)"};
-        }
-
         &.secondary {
           display: block;
           position: absolute;
@@ -143,8 +139,8 @@ nav.navbar {
 
         transform: translateY(.1em);
 
-        font-size: 1.5em;
-        font-weight: normal;
+        font-size: 1.75em;
+        font-weight: bold;
 
         opacity: 0;
 
@@ -247,7 +243,7 @@ nav.navbar {
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: .9;
   }
 }
 
