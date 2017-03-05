@@ -207,7 +207,6 @@ nav.navbar {
       }
 
       a {
-        display: inline-flex;
         position: relative;
 
         text-transform: uppercase;
@@ -230,6 +229,7 @@ nav.navbar {
         }
 
         &:not(.button) {
+          display: inline-flex;
           padding: 1.75em 1em;
         }
 
