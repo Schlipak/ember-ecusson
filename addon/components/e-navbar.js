@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   classNameBindings: ['scrolled'],
 
   title: 'MyEcussonApp',
+  titleLink: "/",
 
   logo: NAVBAR_DEFAULT_IMAGE,
   scrolledLogo: Ember.computed(function() {
