@@ -8,7 +8,7 @@
     }}
   </div>
   <div class="contents horizontal container main-between cross-stretch">
-    <a href="{{titleLink}}" class="logo">
+    {{#link-to titleLink class="logo"}}
       <span class="logo-container {{scrolledClass}}">
         <img src="{{rootURL}}{{logo}}" alt="Logo" draggable="false">
         <img src="{{rootURL}}{{scrolledLogo}}" alt="Logo" class="secondary" draggable="false">
@@ -16,7 +16,7 @@
       <h1>
         <span>{{title}}</span>
       </h1>
-    </a>
+    {{/link-to}}
     <ul class="horizontal container main-end cross-stretch {{scrolledClass}}">
       {{yield (hash
           scrolled=scrolled
