@@ -13,39 +13,39 @@ export default Ember.Component.extend({
   title: 'MyEcussonApp',
 
   logo: NAVBAR_DEFAULT_IMAGE,
-
   scrolledLogo: Ember.computed(function() {
     return this.get('logo');
   }),
 
   scrolled: false,
-
   triggerOffset: 80,
 
   didInsertElement: function() {
-    document.addEventListener('scroll', () => this._onPageScroll());
+    document.addEventListener('scroll', this, false);
   },
 
   willDestroyElement: function() {
-    document.removeEventListener('scroll', () => this._onPageScroll());
+    document.removeEventListener('scroll', this, false);
   },
 
-  _onPageScroll: function() {
-    Ember.run(this, function() {
-      const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      const state = offset >= this.get('triggerOffset');
-      const svgLogoOverlay = document.getElementById('#' + this.get('overlay'));
+  handleEvent: function(evt) {
+    if (evt.type === 'scroll') {
+      Ember.run(this, function() {
+        const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        const state = offset >= this.get('triggerOffset');
+        const svgLogoOverlay = document.getElementById('#' + this.get('overlay'));
 
-      this.set('scrolled', state);
-      if (!svgLogoOverlay) {
-        return;
-      }
-      if (state) {
-        svgLogoOverlay.style.opacity = 0.8;
-      } else {
-        svgLogoOverlay.style.opacity = 0;
-      }
-    });
+        this.set('scrolled', state);
+        if (!svgLogoOverlay) {
+          return;
+        }
+        if (state) {
+          svgLogoOverlay.style.opacity = 0.8;
+        } else {
+          svgLogoOverlay.style.opacity = 0;
+        }
+      });
+    }
   },
 
   scrolledClass: Ember.computed('scrolled', function() {
