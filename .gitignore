@@ -18,5 +18,5 @@ testem.log
 
 #addon/templates/application.hbs
 
-app/templates/
-app/routes/
+#app/templates/
+#app/routes/
