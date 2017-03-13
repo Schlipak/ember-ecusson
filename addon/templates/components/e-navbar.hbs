@@ -1,4 +1,4 @@
-<div class="overlay"></div>
+<div class="overlay {{mobileMenuClass}}"></div>
 <div class="wrapper horizontal container main-between cross-stretch">
   <div class="horizontal container main-start cross-center left">
     {{yield (hash
@@ -17,13 +17,19 @@
         <span>{{title}}</span>
       </h1>
     {{/link-to}}
-    <ul class="horizontal container main-end cross-stretch {{scrolledClass}}">
-      {{yield (hash
-          scrolled=scrolled
-          section="main"
-        )
-      }}
-    </ul>
+    {{#if isMobile}}
+      <a href="#" class="basic button burger" {{action 'toggleMobileMenu'}}>
+        <i class="icon fa fa-bars"></i>
+      </a>
+    {{else}}
+      <ul class="horizontal container main-end cross-stretch {{scrolledClass}}">
+        {{yield (hash
+            scrolled=scrolled
+            section="main"
+          )
+        }}
+      </ul>
+    {{/if}}
   </div>
   <div class="horizontal container main-start cross-center right">
     {{yield (hash
@@ -33,3 +39,28 @@
     }}
   </div>
 </div>
+
+{{#if isMobile}}
+  <ul class="vertical container main-start cross-stretch mobile-menu {{mobileMenuClass}} {{scrolledClass}}">
+    {{yield (hash
+        scrolled=scrolled
+        section="main"
+      )
+    }}
+  </ul>
+{{/if}}
+
+<svg style="display: none;">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5"/>
+      <feColorMatrix in="blur" result="colormatrix"
+        type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 18 -8" />
+      <feBlend in="SourceGraphic" in2="colormatrix"/>
+    </filter>
+  </defs>
+</svg>

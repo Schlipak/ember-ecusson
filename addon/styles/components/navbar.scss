@@ -20,6 +20,52 @@ nav.navbar {
 
   z-index: 900;
 
+  .mobile-menu {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    transform: scaleY(0);
+    transform-origin: top;
+
+    background-color: lighten($color-white-off, 3%);
+    box-shadow: 0 0   2em 0 transparentize($color-night-blue-dark, .9),
+                0 2em 4em -1.5em transparentize($color-night-blue-dark, .75);
+    opacity: 0;
+
+    overflow: hidden;
+    transition: transform .4s, opacity .4s;
+
+    z-index: 10;
+
+    &.open {
+      padding: 0 1em;
+      padding-bottom: 1.5em;
+      opacity: 1;
+
+      transform: scaleY(1);
+    }
+
+    a:after {
+      display: none;
+    }
+
+    > * {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      > * {
+        flex-grow: 1;
+        text-align: center;
+        align-items: center;
+      }
+    }
+  }
+
   .overlay {
     content: "";
     display: block;
@@ -43,17 +89,35 @@ nav.navbar {
                 box-shadow .3s;
     transition-delay: 0s;
 
-    z-index: -1;
+    z-index: 100;
   }
 
   .wrapper {
+    position: relative;
     padding: 0 1em;
+
+    z-index: 200;
   }
 
   .contents {
     position: relative;
     width: 100%;
     max-width: 1200px;
+
+    a.burger {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+
+      width: 2.5em;
+      height: 2.5em;
+      padding: 0;
+      margin: 0 1em;
+
+      border-radius: 50%;
+    }
   }
 
   &.scrolled {
@@ -62,7 +126,7 @@ nav.navbar {
 
     .overlay {
       transform: scaleY(1);
-      box-shadow: 0 0   2em 0    transparentize($color-night-blue-dark, .9),
+      box-shadow: 0 0   2em 0 transparentize($color-night-blue-dark, .9),
                   0 2em 4em -1.5em transparentize($color-night-blue-dark, .75);
       transition-delay: .15s;
     }
@@ -262,5 +326,31 @@ nav.navbar {
   to {
     transform-origin: right;
     transform: scaleX(0);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  nav.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 0;
+    color: lighten($color-black, 10%);
+
+    transition: padding 0s;
+
+    .overlay {
+      transform: scaleY(1);
+      box-shadow: 0 0   2em 0    transparentize($color-night-blue-dark, .9),
+                  0 2em 4em -1.5em transparentize($color-night-blue-dark, .75);
+      transition-delay: 0s;
+
+      &.open {
+        box-shadow: 0 0   2em 0    transparent,
+                    0 2em 4em -2em transparent;
+      }
+    }
   }
 }

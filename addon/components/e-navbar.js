@@ -19,6 +19,10 @@ export default Ember.Component.extend({
   }),
 
   scrolled: false,
+  isMobile: Ember.computed(function() {
+    return window.innerWidth <= 900;
+  }),
+  isMobileMenuOpen: false,
   triggerOffset: 80,
 
   didInsertElement: function() {
@@ -27,6 +31,12 @@ export default Ember.Component.extend({
 
   willDestroyElement: function() {
     document.removeEventListener('scroll', this, false);
+  },
+
+  actions: {
+    toggleMobileMenu: function() {
+      this.set('isMobileMenuOpen', !this.get('isMobileMenuOpen'));
+    }
   },
 
   handleEvent: function(evt) {
@@ -52,6 +62,13 @@ export default Ember.Component.extend({
   scrolledClass: Ember.computed('scrolled', function() {
     if (this.get('scrolled')) {
       return 'scrolled';
+    }
+    return '';
+  }),
+
+  mobileMenuClass: Ember.computed('isMobileMenuOpen', function() {
+    if (this.get('isMobileMenuOpen')) {
+      return 'open';
     }
     return '';
   }),
