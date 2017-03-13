@@ -24,9 +24,26 @@
     cursor: help;
   }
 
+  &.rounded {
+    border-radius: 1.5em;
+  }
+
   $i: 1;
   @each $kvp in $--std-colors {
     $light: nth(nth($--std-colors-dark, $i), 2);
+    $dark: darken($light, 10%);
+
+    &.#{nth($kvp, 1)} {
+      background-color: nth($kvp, 2);
+      color: color-contrast(nth($kvp, 2), $color-black, $color-white);
+    }
+
+    $i: $i + 1;
+  }
+
+  $i: 1;
+  @each $kvp in $--std-colors-social {
+    $light: nth($kvp, 2);
     $dark: darken($light, 10%);
 
     &.#{nth($kvp, 1)} {
