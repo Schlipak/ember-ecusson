@@ -36,6 +36,10 @@ export default Ember.Component.extend({
   actions: {
     toggleMobileMenu: function() {
       this.set('isMobileMenuOpen', !this.get('isMobileMenuOpen'));
+    },
+
+    closeMobileMenu: function() {
+      this.set('isMobileMenuOpen', false);
     }
   },
 

@@ -41,7 +41,7 @@
 </div>
 
 {{#if isMobile}}
-  <ul class="vertical container main-start cross-stretch mobile-menu {{mobileMenuClass}} {{scrolledClass}}">
+  <ul class="vertical container main-start cross-stretch mobile-menu {{mobileMenuClass}} {{scrolledClass}}" {{action 'closeMobileMenu' on='click' preventDefault=false}}>
     {{yield (hash
         scrolled=scrolled
         section="main"
