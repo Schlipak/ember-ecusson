@@ -27,6 +27,10 @@ export default Ember.Component.extend({
 
   didInsertElement: function() {
     document.addEventListener('scroll', this, false);
+
+    this.get('resizeService').on('didResize', () => {
+      this.set('isMobile', window.innerWidth <= 900);
+    });
   },
 
   willDestroyElement: function() {

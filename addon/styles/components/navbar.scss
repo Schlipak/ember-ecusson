@@ -12,7 +12,7 @@ nav.navbar {
   padding: 2em;
   box-sizing: border-box;
 
-  color: lighten($color-black, 20%);
+  color: lighten($color-black, 5%);
   background-color: transparent;
   transform: translateZ(0);
 
@@ -129,12 +129,6 @@ nav.navbar {
       box-shadow: 0 0   2em 0 transparentize($color-night-blue-dark, .9),
                   0 2em 4em -1.5em transparentize($color-night-blue-dark, .75);
       transition-delay: .15s;
-    }
-
-    ul {
-      a:after {
-        background-color: $color-primary;
-      }
     }
   }
 
@@ -280,8 +274,14 @@ nav.navbar {
           left: 0;
           height: .25em;
 
-          color: $color-primary;
           border-radius: $sizing-element-border-radius;
+
+          @include linear-gradient(
+            to right,
+            $color-primary 0%,
+            $color-fuchsia 100%,
+            $fallback: $color-primary
+          );
 
           transition: background-color .4s,
                       transform .2s,
