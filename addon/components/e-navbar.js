@@ -14,9 +14,7 @@ export default Ember.Component.extend({
   titleLink: "index",
 
   logo: NAVBAR_DEFAULT_IMAGE,
-  scrolledLogo: Ember.computed(function() {
-    return this.get('logo');
-  }),
+  yieldLogo: false,
 
   scrolled: false,
   isMobile: Ember.computed(function() {

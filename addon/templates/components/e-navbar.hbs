@@ -9,9 +9,16 @@
   </div>
   <div class="contents horizontal container main-between cross-stretch">
     {{#link-to titleLink class="logo"}}
-      <span class="logo-container {{scrolledClass}}">
-        <img src="{{rootURL}}{{logo}}" alt="Logo" draggable="false">
-        <img src="{{rootURL}}{{scrolledLogo}}" alt="Logo" class="secondary" draggable="false">
+      <span class="logo-container">
+        {{#if yieldLogo}}
+          {{yield (hash
+              scrolled=scrolled
+              section="logo"
+            )
+          }}
+        {{else}}
+          <img src="{{rootURL}}{{logo}}" alt="Logo" draggable="false">
+        {{/if}}
       </span>
       <h1>
         <span>{{title}}</span>
