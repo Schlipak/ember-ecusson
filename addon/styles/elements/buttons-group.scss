@@ -13,6 +13,7 @@
 
   border-radius: $sizing-element-border-radius;
   overflow: hidden;
+  @include webkit-border-radius-fix;
 
   &.vertical {
     flex-direction: column;;
@@ -38,6 +39,10 @@
       border-bottom-width: 0;
     }
   } //! &.basic
+
+  &.rounded {
+    border-radius: 1.1em;
+  }
 
   .button {
     margin: 0;

@@ -25,6 +25,14 @@ button, .button {
   cursor: pointer;
   transition: background-color .3s, color .3s, border-color .3s;
 
+  overflow: hidden;
+  @include webkit-border-radius-fix;
+
+  > span {
+    position: relative;
+    z-index: 10;
+  }
+
   @include no-select;
   @include moz-button-style-fix;
 
@@ -210,6 +218,83 @@ button, .button {
           color: color-contrast($dark, $color-black, $color-white);
         }
       } //! &.basic
+
+      $j: 1;
+      @each $shade-source in $--std-colors {
+        $light-shade: nth($shade-source, 2);
+        $dark-shade: nth(nth($--std-colors-dark, $j), 2);
+
+        &.#{nth($shade-source, 1)}-shaded {
+          @include linear-gradient(
+            to right,
+            $light 0%,
+            $light-shade 100%,
+            $fallback: $light
+          );
+
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            @include linear-gradient(
+              to right,
+              $dark-shade 0%,
+              $dark 100%,
+              $fallback: $dark-shade
+            );
+
+            transition: opacity .8s;
+            opacity: 0;
+
+            pointer-events: none;
+            @include no-select;
+            z-index: 0;
+          }
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            @include linear-gradient(
+              to right,
+              darken($dark-shade, 10%) 0%,
+              darken($dark, 10%) 100%,
+              $fallback: darken($dark-shade, 10%)
+            );
+
+            transition: opacity .8s;
+            opacity: 0;
+
+            pointer-events: none;
+            @include no-select;
+            z-index: 1;
+          }
+
+          &:hover, &:focus {
+            &:before {
+              opacity: 1;
+            }
+          }
+
+          &:active {
+            &:after {
+              opacity: 1;
+            }
+          }
+        }
+
+        $j: $j + 1;
+      } //! @each shade
     } //! &.{{color}}.button
 
     $i: $i + 1;

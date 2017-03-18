@@ -8,8 +8,8 @@
   justify-content: flex-start;
   align-items: stretch;
   position: relative;
-  width: 100%;
   overflow: hidden;
+  flex-grow: 1;
 
   border: none;
   border-radius: $sizing-element-border-radius;

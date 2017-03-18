@@ -121,5 +121,63 @@
       </div>
     </div>
 
+    <h3>Forms can have sections</h3>
+    <h4>Just insert a heading element between rows</h4>
+    <div class="elements">
+      <div class="row">
+        <form action="#" method="post">
+          <h4>Section 1</h4>
+          <div class="row">
+            <label class="required input">
+              <span>Some input</span>
+              <input type="text" name="someData" placeholder="Some data" required>
+            </label>
+          </div>
+
+          <h4>Section 2</h4>
+          <div class="row">
+            <label class="required input">
+              <span>Another input</span>
+              <input type="text" name="otherData" placeholder="Other data" required>
+            </label>
+          </div>
+
+          <div class="row controls">
+            <button type="button" name="sumitFormData" class="big teal expand button">Submit</button>
+            <button type="reset" class="big black expand button">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <h3>Inputs can have different weights in a row</h3>
+    <h4>
+      <code>.w-{weight}</code> with <code>weight</code> from 1 to 12
+    </h4>
+    <div class="elements">
+      <div class="row">
+        <form action="#" method="post">
+          <div class="row">
+            <label class="required input w-1">
+              <span>Civility</span>
+              <input type="text" name="weightA" placeholder="Mr.">
+            </label>
+            <label class="required input w-5">
+              <span>First name</span>
+              <input type="text" name="weightB" placeholder="John">
+            </label>
+            <label class="required input w-5">
+              <span>Last name</span>
+              <input type="text" name="weightC" placeholder="Doe">
+            </label>
+          </div>
+          <div class="row controls">
+            <button type="button" name="sumitFormData" class="big teal expand button">Submit</button>
+            <button type="reset" class="big black expand button">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </div>
 </section>

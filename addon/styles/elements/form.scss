@@ -12,6 +12,24 @@ form {
 
   @include webkit-border-radius-fix;
 
+  &:not(.dropzone) {
+    h1, h2, h3, h4, h5, h6 {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      flex-grow: 1;
+
+      margin: 0;
+      padding: 1em;
+
+      background-color: transparentize($color-black, .95);
+      border-bottom: 1px solid transparentize($color-black, .92);
+    }
+  }
+
   .input {
     border-radius: 0;
   }
@@ -43,6 +61,14 @@ form {
 
     .input:not(:last-child) {
       border-right: 1px solid transparentize($color-black, .92);
+    }
+
+    .input {
+      @for $weight from 1 through 12 {
+        &.w-#{$weight} {
+          flex-grow: $weight;
+        }
+      }
     }
   }
 }

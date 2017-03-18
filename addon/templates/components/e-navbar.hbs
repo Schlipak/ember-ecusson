@@ -56,18 +56,3 @@
     }}
   </ul>
 {{/if}}
-
-<svg style="display: none;">
-  <defs>
-    <filter id="goo">
-      <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5"/>
-      <feColorMatrix in="blur" result="colormatrix"
-        type="matrix"
-        values="1 0 0 0 0
-                0 1 0 0 0
-                0 0 1 0 0
-                0 0 0 18 -8" />
-      <feBlend in="SourceGraphic" in2="colormatrix"/>
-    </filter>
-  </defs>
-</svg>
