@@ -10,11 +10,10 @@
       </a>
     </div>
   {{/each}}
-  <input type="text" name={{name}} value={{concatTags}} class="hidden" disabled="disabled">
   <input
     type="text"
     name="tagsInput"
-    autofocus="autofocus"
     {{action "checkNewTag" on="input" preventDefault=false}}
   >
+  <input type="text" name={{name}} value={{concatTags}} class="hidden" disabled="disabled">
 </span>

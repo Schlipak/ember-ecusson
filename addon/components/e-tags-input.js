@@ -18,20 +18,25 @@ export default Ember.Component.extend({
 
     const backspaceCallback = (e) => {
       const key = e.keyCode || e.which;
+      const input = root.querySelector('input[name="tagsInput"]');
 
-      if (key === 8) {
-        const tags = this.get('tags');
-        const lastTag = tags.objectAt(tags.length - 1);
+      const tags = this.get('tags');
+      const lastTag = tags.objectAt(tags.length - 1);
 
+      if (key === 8 && input.value.length === 0) {
         if (lastTag) {
           if (lastTag.state === '') {
             Ember.set(lastTag, 'state', 'selected');
-          } else {
+          } else if (lastTag.state !== 'dismissing') {
             Ember.set(lastTag, 'state', 'dismissing');
             setTimeout(() => {
               tags.removeAt(tags.length - 1);
-            }, 400);
+            }, 250);
           }
+        }
+      } else {
+        if (lastTag) {
+          Ember.set(lastTag, 'state', '');
         }
       }
     };
