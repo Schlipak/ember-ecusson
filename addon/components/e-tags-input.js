@@ -87,7 +87,14 @@ export default Ember.Component.extend({
 
   concatTags: Ember.computed('tags.[]', function() {
     let tags = this.get('tags');
+    let labels = [];
 
-    return (tags || []).join(', ');
+    if (tags) {
+      tags.forEach((tag) => {
+        labels.push(tag.label);
+      });
+    }
+
+    return (labels || []).join(', ');
   })
 });
