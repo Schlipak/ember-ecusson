@@ -5,7 +5,7 @@
   {{#each tags as |tag index|}}
     <div class="tag {{tag.state}}">
       <span>{{tag.label}}</span>
-      <a href="#" {{action "remove" index}}>
+      <a href="/#" {{action "remove" index}}>
         <i class="icon fa fa-times"></i>
       </a>
     </div>

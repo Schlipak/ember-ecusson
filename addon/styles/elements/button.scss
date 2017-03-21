@@ -23,7 +23,7 @@ button, .button {
   font-size: 1em;
 
   cursor: pointer;
-  transition: background-color .3s, color .3s, border-color .3s;
+  transition: background-color .3s, color .3s, border-color .3s, opacity .3s;
 
   overflow: hidden;
   @include webkit-border-radius-fix;
