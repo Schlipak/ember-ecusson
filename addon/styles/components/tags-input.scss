@@ -1,0 +1,31 @@
+// Tags input for Ecusson CSS
+
+label.tags.input {
+  .tags-container {
+    padding: .5em .8em;
+
+    .tag {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: .25em .5em;
+      margin: .25em;
+
+      background-color: transparentize($color-black, .8);
+
+      &:hover, &:focus {
+        background-color: transparentize($color-black, .75);
+      }
+
+      &:active {
+        background-color: transparentize($color-black, .7);
+      }
+    }
+
+    input[type="text"] {
+      padding: 0;
+      margin: .25em;
+    }
+  }
+}
