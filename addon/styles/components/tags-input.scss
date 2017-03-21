@@ -1,31 +1,99 @@
 // Tags input for Ecusson CSS
 
 label.tags.input {
+  > span {
+    display: inline;
+
+    > span.sub {
+      display: inline;
+      padding: 0 .4em;
+
+      font-size: .9em;
+      opacity: .75;
+    }
+  }
+
   .tags-container {
-    padding: .5em .8em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-center;
+
+    flex-wrap: wrap;
+
+    padding: .5em .85em;
 
     .tag {
       display: inline-flex;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
 
-      padding: .25em .5em;
+      overflow: hidden;
+
+      padding: .4em .5em;
+      padding-left: .75em;
       margin: .25em;
+
+      max-width: 100%;
 
       background-color: transparentize($color-black, .8);
 
-      &:hover, &:focus {
-        background-color: transparentize($color-black, .75);
+      transform: scale(1);
+      opacity: 1;
+
+      transition: transform .3s, opacity .3s,
+                  max-width .3s, padding .3s, margin .3s;
+
+      span {
+        padding: 0;
+        padding-right: .25em;
+
+        transform: translateX(.5em);
+        transition: transform .25s;
       }
 
-      &:active {
-        background-color: transparentize($color-black, .7);
+      a {
+        color: currentColor;
+
+        transform: translateX(2em);
+        transition: transform .25s;
+
+        &:after {
+          display: none;
+        }
       }
-    }
+
+      &:hover, &:focus, &.selected {
+        span {
+          transform: translateX(0);
+        }
+
+        a {
+          transform: translateX(0);
+        }
+      }
+
+      &.dismissing {
+        transform: scale(0);
+        opacity: 0;
+
+        max-width: 0%;
+        padding: 0;
+        margin: 0;
+      }
+    } //! .tag
 
     input[type="text"] {
+      display: inline-block;
       padding: 0;
       margin: .25em;
+
+      flex-grow: 1;
+
+      &.hidden {
+        display: none;
+      }
     }
-  }
+  } //! .tags-container
 }

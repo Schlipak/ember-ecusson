@@ -8,18 +8,62 @@ export default Ember.Component.extend({
   classNames: ['input', 'tags'],
 
   tags: Ember.A(),
+  name: 'tagsValue',
+
+  _backspaceCallback: null,
+
+  didInsertElement() {
+    const root = this.get('element');
+    const input = root.querySelector('input[name="tagsInput"]');
+
+    const backspaceCallback = (e) => {
+      const key = e.keyCode || e.which;
+
+      if (key === 8) {
+        const tags = this.get('tags');
+        const lastTag = tags.objectAt(tags.length - 1);
+
+        if (lastTag) {
+          if (lastTag.state === '') {
+            Ember.set(lastTag, 'state', 'selected');
+          } else {
+            Ember.set(lastTag, 'state', 'dismissing');
+            setTimeout(() => {
+              tags.removeAt(tags.length - 1);
+            }, 400);
+          }
+        }
+      }
+    };
+
+    input.addEventListener('keydown', backspaceCallback);
+    this.set('_backspaceCallback', backspaceCallback);
+  },
+
+  willDestroyElement() {
+    const root = this.get('element');
+    const input = root.querySelector('input[name="tagsInput"]');
+    const backspaceCallback = this.get('_backspaceCallback');
+
+    if (backspaceCallback) {
+      input.removeEventListener('keydown', backspaceCallback);
+    }
+  },
 
   actions: {
     checkNewTag: function() {
       const root = this.get('element');
-      const input = root.querySelector('input[type="text"]');
+      const input = root.querySelector('input[name="tagsInput"]');
       let tags = this.get('tags');
 
       let text = input.value;
 
       if (text.match(/^.+,$/) && tags) {
         text = text.slice(0, -1);
-        tags.pushObject(text);
+        tags.pushObject({
+          label: text,
+          state: ''
+        });
         input.value = '';
       }
     },
@@ -28,8 +72,17 @@ export default Ember.Component.extend({
       let tags = this.get('tags');
 
       if (tags) {
-        tags.removeAt(index);
+        Ember.set(tags[index], 'state', 'dismissing');
+        setTimeout(() => {
+          tags.removeAt(index);
+        }, 400);
       }
     }
-  }
+  },
+
+  concatTags: Ember.computed('tags.[]', function() {
+    let tags = this.get('tags');
+
+    return (tags || []).join(', ');
+  })
 });

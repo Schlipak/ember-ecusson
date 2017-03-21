@@ -1,14 +1,20 @@
-<span>{{title}}</span>
-<span class="horizontal inline container main-start cross-center wrap tags-container">
+<span>
+  {{title}} <span class="sub">{{subtitle}}</span>
+</span>
+<span class="tags-container">
   {{#each tags as |tag index|}}
-    <a href="#" class="tag" {{action "remove" index}}>
-      {{tag}}
-    </a>
+    <div class="tag {{tag.state}}">
+      <span>{{tag.label}}</span>
+      <a href="#" {{action "remove" index}}>
+        <i class="icon fa fa-times"></i>
+      </a>
+    </div>
   {{/each}}
+  <input type="text" name={{name}} value={{concatTags}} class="hidden" disabled="disabled">
   <input
     type="text"
     name="tagsInput"
     autofocus="autofocus"
-    {{action "checkNewTag" on="keyUp" preventDefault=false}}
+    {{action "checkNewTag" on="input" preventDefault=false}}
   >
 </span>
