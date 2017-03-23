@@ -53,6 +53,9 @@ export default Ember.Component.extend({
     const input = root.querySelector('input[name="tagsInput"]');
     const backspaceCallback = this.get('_backspaceCallback');
 
+    let tags = this.get('tags');
+    tags.clear();
+
     if (backspaceCallback) {
       input.removeEventListener('keydown', backspaceCallback);
     }
@@ -61,7 +64,7 @@ export default Ember.Component.extend({
   _setupTagsFromValue: Ember.on('init', function() {
     const tags = this.get('tags');
     const value = this.get('value');
-    
+
     if (value) {
       const tagList = value.split(',');
       (tagList || []).forEach((tag) => {
