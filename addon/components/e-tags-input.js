@@ -10,6 +10,8 @@ export default Ember.Component.extend({
   tags: Ember.A(),
   name: 'tagsValue',
 
+  tagSeparator: ',',
+
   _backspaceCallback: null,
 
   didInsertElement() {
@@ -59,11 +61,14 @@ export default Ember.Component.extend({
     checkNewTag: function() {
       const root = this.get('element');
       const input = root.querySelector('input[name="tagsInput"]');
+      const tagSeparator = this.get('tagSeparator');
       let tags = this.get('tags');
 
       let text = input.value;
+      let reg = new RegExp(`^.+${tagSeparator}$`);
+      console.log(reg);
 
-      if (text.match(/^.+,$/) && tags) {
+      if (text.match(reg) && tags) {
         text = text.slice(0, -1);
         tags.pushObject({
           label: text,
