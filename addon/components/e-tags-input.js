@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   classNames: ['input', 'tags'],
 
   tags: Ember.A(),
+  value: "",
   name: 'tagsValue',
 
   tagSeparator: ',',
@@ -45,6 +46,18 @@ export default Ember.Component.extend({
 
     input.addEventListener('keydown', backspaceCallback);
     this.set('_backspaceCallback', backspaceCallback);
+
+    const tags = this.get('tags');
+    const value = this.get('value');
+    if (value) {
+      const tagList = value.split(', ');
+      (tagList || []).forEach((tag) => {
+        tags.pushObject({
+          label: tag,
+          state: ''
+        });
+      });
+    }
   },
 
   willDestroyElement() {
@@ -66,7 +79,6 @@ export default Ember.Component.extend({
 
       let text = input.value;
       let reg = new RegExp(`^.+${tagSeparator}$`);
-      console.log(reg);
 
       if (text.match(reg) && tags) {
         text = text.slice(0, -1);
