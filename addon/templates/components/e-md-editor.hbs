@@ -1,0 +1,199 @@
+<div class="vertical container main-start cross-stretch">
+  <div class="horizontal container controls main-between cross-stretch">
+    <div class="horizontal square buttons group">
+      <button class="primary square button" title="Bold" {{action "surroundWith" "**"}}>
+        <i class="icon fa fa-bold"></i>
+      </button>
+      <button class="primary square button" title="Italic" {{action "surroundWith" "_"}}>
+        <i class="icon fa fa-italic"></i>
+      </button>
+      <button class="primary square button" title="Strikethrough" {{action "surroundWith" "~~"}}>
+        <i class="icon fa fa-strikethrough"></i>
+      </button>
+
+      <div class="vertical tiny divider"></div>
+
+      <button class="primary square button" title="Header 1" {{action "insertAtLineStart" "# "}}>
+        <span>H1</span>
+      </button>
+      <button class="primary square button" title="Header 2" {{action "insertAtLineStart" "## "}}>
+        <span>H2</span>
+      </button>
+      <button class="primary square button" title="Header 3" {{action "insertAtLineStart" "### "}}>
+        <span>H3</span>
+      </button>
+      <button class="primary square button" title="Header 4" {{action "insertAtLineStart" "#### "}}>
+        <span>H4</span>
+      </button>
+      <button class="primary square button" title="Header 5" {{action "insertAtLineStart" "##### "}}>
+        <span>H5</span>
+      </button>
+      <button class="primary square button" title="Header 6" {{action "insertAtLineStart" "###### "}}>
+        <span>H6</span>
+      </button>
+
+      <div class="vertical tiny divider"></div>
+
+      <button class="primary square button" title="Indent" {{action "insertAtLineStart" "  " false}}>
+        <i class="icon fa fa-indent"></i>
+      </button>
+      <button class="primary square button" title="Outdent" {{action "deleteFromLineStart" " " 2}}>
+        <i class="icon fa fa-outdent"></i>
+      </button>
+
+      <div class="vertical tiny divider"></div>
+
+      <div class="more-options">
+        <button class="primary square button" title="Link" {{action "surroundWith" "[" "](http://)"}}>
+          <i class="icon fa fa-link"></i>
+        </button>
+        <div class="more">
+          <button class="primary square button" title="External link" {{action "surroundWith" "[" "]!(http://)"}}>
+            <i class="icon fa fa-external-link-square"></i>
+          </button>
+        </div>
+      </div>
+      <div class="more-options">
+        <button class="primary square button" title="Button link" {{action "surroundWith" "{" "}(http:// color=primary)"}}>
+          <i class="icon fa fa-square"></i>
+        </button>
+        <div class="more">
+          <button class="primary square button" title="External button link" {{action "surroundWith" "{" "}!(http:// color=primary)"}}>
+            <i class="icon fa fa-external-link-square"></i>
+          </button>
+        </div>
+      </div>
+      <button class="primary square button" title="Image" {{action "surroundWith" "![alt text](" " =250x* \"optional title\")"}}>
+        <i class="icon fa fa-image"></i>
+      </button>
+      <button class="primary square button" title="User mention" {{action "insertAtCaret" "@"}}>
+        <i class="icon fa fa-at"></i>
+      </button>
+      <div class="more-options">
+        <button class="primary square button" title="Icon" {{action "surroundWith" ":"}}>
+          <i class="icon fa fa-smile-o"></i>
+        </button>
+        <div class="more">
+          <div class="horizontal container main-start cross-start">
+            <button class="primary square button" title="Yay!" {{action "insertAtCaret" ":smile-o:"}}>
+              <i class="icon fa fa-smile-o"></i>
+            </button>
+            <button class="primary square button" title="Meh..." {{action "insertAtCaret" ":meh-o:"}}>
+              <i class="icon fa fa-meh-o"></i>
+            </button>
+            <button class="primary square button" title="Bleh" {{action "insertAtCaret" ":frown-o:"}}>
+              <i class="icon fa fa-frown-o"></i>
+            </button>
+          </div>
+          <div class="horizontal container main-start cross-start">
+            <button class="primary square button" title="Heart" {{action "insertAtCaret" ":heart:"}}>
+              <i class="icon fa fa-heart"></i>
+            </button>
+            <button class="primary square button" title="World" {{action "insertAtCaret" ":globe:"}}>
+              <i class="icon fa fa-globe"></i>
+            </button>
+            <button class="primary square button" title="Users" {{action "insertAtCaret" ":users:"}}>
+              <i class="icon fa fa-users"></i>
+            </button>
+          </div>
+          <div class="horizontal container main-start cross-start">
+            <button class="primary square button" title="Facebook" {{action "insertAtCaret" ":facebook-square:"}}>
+              <i class="icon fa fa-facebook-square"></i>
+            </button>
+            <button class="primary square button" title="Twitter" {{action "insertAtCaret" ":twitter:"}}>
+              <i class="icon fa fa-twitter"></i>
+            </button>
+            <button class="primary square button" title="LinkedIn" {{action "insertAtCaret" ":linkedin-square:"}}>
+              <i class="icon fa fa-linkedin-square"></i>
+            </button>
+            <button class="primary square button" title="Instagram" {{action "insertAtCaret" ":instagram:"}}>
+              <i class="icon fa fa-instagram"></i>
+            </button>
+          </div>
+          <div class="horizontal container main-start cross-start">
+            <button class="primary square button" title="Arrow Up" {{action "insertAtCaret" ":arrow-up:"}}>
+              <i class="icon fa fa-arrow-up"></i>
+            </button>
+            <button class="primary square button" title="Arrow Down" {{action "insertAtCaret" ":arrow-down:"}}>
+              <i class="icon fa fa-arrow-down"></i>
+            </button>
+            <button class="primary square button" title="Arrow Left" {{action "insertAtCaret" ":arrow-left:"}}>
+              <i class="icon fa fa-arrow-left"></i>
+            </button>
+            <button class="primary square button" title="Arrow Right" {{action "insertAtCaret" ":arrow-right:"}}>
+              <i class="icon fa fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vertical tiny divider"></div>
+
+      <button class="primary square button" title="Quote" {{action "insertAtLineStart" "> "}}>
+        <i class="icon fa fa-quote-right"></i>
+      </button>
+      <button class="primary square button" title="Code" {{action "surroundOrInsert" "`" "```javascript\n\n```"}}>
+        <i class="icon fa fa-code"></i>
+      </button>
+      <button class="primary square button" title="Unordered list" {{action "insertAtLineStart" "- "}}>
+        <i class="icon fa fa-list-ul"></i>
+      </button>
+      <button class="primary square button" title="Ordered list" {{action "insertAtLineStart" "{index}. "}}>
+        <i class="icon fa fa-list-ol"></i>
+      </button>
+      <button class="primary square button" title="Table" {{action "insertAtCaret" "| Header1 | Header2 | Header3 |\n|:--------|:-------:|--------:|\n| Left    | Center  | Right   |"}}>
+        <i class="icon fa fa-table"></i>
+      </button>
+      <button class="primary square button" title="Horizontal rule" {{action "insertAtCaret" "\n\n---\n"}}>
+        <span>hr</span>
+      </button>
+    </div>
+
+    <div class="horizontal square buttons group">
+      <button class="primary square button" title="Toggle preview" {{action "togglePreview"}}>
+        {{#if showPreview}}
+          <i class="icon fa fa-eye-slash"></i>
+        {{else}}
+          <i class="icon fa fa-eye"></i>
+        {{/if}}
+      </button>
+    </div>
+  </div>
+
+  <div class="horizontal container content main-start cross-stretch">
+    <div class="vertical container line-numbers main-start cross-end">
+      {{#each lineNumbers as |num|}}
+        <span>{{num}}</span>
+      {{/each}}
+    </div>
+    <div class="vertical container source main-start cross-stretch {{if (not showPreview) "wide"}}">
+      {{textarea value=source name=name}}
+    </div>
+
+    {{#if showPreview}}
+      <div class="result-container">
+        <div class="wrapper">
+          {{markdown-to-html
+            class='result'
+            markdown=source
+            strikethrough=true
+            ghCompatibleHeaderId=true
+            prefixHeaderId='md-'
+            ghCodeBlocks=true
+            encodeEmails=true
+            parseImgDimensions=true
+            simplifiedAutoLink=false
+            excludeTrailingPunctuationFromURLs=true
+            literalMidWordUnderscores=true
+            tables=true
+            ghMentions=true
+            ghMentionsLink='#/user/{u}'
+            smoothLivePreview=true
+            simpleLineBreaks=false
+            extensions='fontAwesomeIcons buttonLink outgoingButtonLink outgoingLink'
+          }}
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>

@@ -7,15 +7,25 @@ code {
   margin: 0 .5em;
 
   background-color: transparentize($color-white-off-dark, .85);
-  color: inherit;
+  color: lighten($color-black, 20%);
   border-radius: $sizing-element-border-radius;
   font-size: .9em;
   font-family: $font-monospace;
 
+  word-wrap: break-word;
+
   &.inverted {
-    background-color: transparentize($color-white, .75);
+    background-color: transparentize($color-white, .75) !important;
     color: $color-white;
   }
+}
+
+pre > code {
+  display: block;
+  padding: 1em 1.5em !important;
+
+  background-color: lighten(#DDDDE3, 2%) !important;
+  overflow-x: auto;
 }
 
 kbd {

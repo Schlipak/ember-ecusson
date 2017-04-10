@@ -1,0 +1,59 @@
+// Table element for Ecusson CSS
+
+table {
+  position: relative;
+  width: 100%;
+
+  background-color: $color-white;
+  border-radius: $sizing-element-border-radius;
+  overflow: hidden;
+  @include webkit-border-radius-fix;
+
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  &.inline {
+    display: inline-table;
+    width: auto;
+  }
+
+  thead {
+    position: relative;
+
+    background-color: lighten($color-white, 2%);
+    box-shadow: 0 .5em 1em -.5em transparentize($color-black, .85);
+
+    tr {
+      position: relative;
+
+      th {
+        position: relative;
+        padding: 1em 1.5em;
+      }
+    }
+  } //! thead
+
+  tbody {
+    position: relative;
+
+    tr {
+      position: relative;
+
+      background-color: transparent;
+      transition: background-color .2s;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid transparentize($color-black, .92);
+      }
+
+      &:hover {
+        background-color: transparentize($color-black, .95);
+      }
+
+      td {
+        position: relative;
+        padding: 1em 1.5em;
+      }
+    }
+  }
+}

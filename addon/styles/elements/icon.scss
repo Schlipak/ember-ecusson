@@ -1,4 +1,8 @@
 //
+// Copyright (c) 2017 by Schlipak. All Rights Reserved.
+//
+
+//
 // Icon element for Ecusson
 //
 
@@ -42,5 +46,11 @@
     }
 
     $i: $i + 1;
+  }
+}
+
+p, span {
+  > .icon {
+    margin: 0 .25em;
   }
 }

@@ -6,32 +6,55 @@ ul, ol {
   display: block;
   position: relative;
 
-  padding-left: 1.5em;
+  padding-left: 2.5em;
   margin: 1em 0;
-}
 
-ul {
   list-style: none;
 
   li {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    padding: .2em 0;
+    position: relative;
+    padding: .15em 0;
 
     &:before {
-      content: '';
       display: inline-block;
-      position: relative;
-      width: 7px;
-      height: 2px;
-      margin: 0 7px;
+      position: absolute;
       box-sizing: content-box;
 
-      border-radius: $sizing-element-border-radius;
-      background-color: currentColor;
+      top: 50%;
+      left: -.5em;
+      transform: translate(-100%, calc(-50% + .125em));
+
       opacity: .75;
+
+      @include no-select;
+    }
+  }
+}
+
+ol {
+  counter-reset: counter-ordered-list;
+
+  li {
+    &:before {
+      counter-increment: counter-ordered-list;
+      content: counter(counter-ordered-list) '.';
+
+      font-family: $font-monospace;
+      font-weight: 900;
+      font-size: .75em;
+      opacity: 1;
+    }
+  }
+}
+
+ul {
+  li {
+    &:before {
+      content: '\f105';
+
+      font-family: $font-icons;
+      font-size: .6em;
+      font-weight: bold;
     }
   }
 }

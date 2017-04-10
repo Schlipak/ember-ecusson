@@ -18,3 +18,46 @@ body {
 .no-select {
   @include no-select;
 }
+
+blockquote {
+  display: block;
+  position: relative;
+  padding: .2em 1.5em;
+  padding-right: 0;
+
+  font-family: $font-serif;
+  opacity: .8;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: .2em;
+    height: 100%;
+
+    background-color: currentColor;
+    border-radius: $sizing-element-border-radius;
+
+    opacity: .5;
+  }
+}
+
+p {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  > * {
+    margin-left: .25em;
+    margin-right: .25em;
+  }
+
+  .button {
+    margin: .1em .4em;
+  }
+}

@@ -5,13 +5,15 @@ const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 
 const STYLESHEETS_URIS = [
-  'https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700|Merriweather:400,700|Expletus+Sans|Lato:400,700|Fira+Mono',
+  'https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700|Merriweather:400,400i,700,700i|Expletus+Sans|Lato:400,700|Fira+Mono',
   'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-  'assets/dropzone.min.css'
+  'assets/dropzone.min.css',
+  'assets/atom-one-light.css'
 ];
 
 const JAVASCRIPTS_URIS = [
-  'assets/dropzone.min.js'
+  'assets/dropzone.min.js',
+  'assets/highlight.pack.js'
 ]
 
 module.exports = {

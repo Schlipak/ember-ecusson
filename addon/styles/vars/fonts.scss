@@ -3,6 +3,7 @@
 //
 
 $font-fallback-sans: "Helvetica Neue", "Helvetica", Verdana, sans-serif;
+$font-fallback-serif: "Times New Roman", serif;
 $font-fallback-mono: "Courier New", Courier, monospace;
 $font-icons: "FontAwesome";
 
@@ -10,4 +11,5 @@ $font-regular: "Lato", $font-fallback-sans;
 $font-h1: "Expletus Sans", $font-fallback-sans;
 $font-title: "Merriweather Sans", $font-fallback-sans;
 
+$font-serif: "Merriweather", $font-fallback-serif;
 $font-monospace: "Fira Mono", $font-fallback-mono;
