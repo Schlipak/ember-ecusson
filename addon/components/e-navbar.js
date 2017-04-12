@@ -8,7 +8,6 @@ export default Ember.Component.extend({
 
   tagName: 'nav',
   classNames: ['navbar'],
-  classNameBindings: ['scrolled'],
 
   title: 'MyEcussonApp',
   titleLink: "index",
@@ -16,7 +15,6 @@ export default Ember.Component.extend({
   logo: NAVBAR_DEFAULT_IMAGE,
   yieldLogo: false,
 
-  scrolled: false,
   isMobile: Ember.computed(function() {
     return window.innerWidth <= 900;
   }),
@@ -44,33 +42,6 @@ export default Ember.Component.extend({
       this.set('isMobileMenuOpen', false);
     }
   },
-
-  handleEvent: function(evt) {
-    if (evt.type === 'scroll') {
-      Ember.run(this, function() {
-        const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        const state = offset >= this.get('triggerOffset');
-        const svgLogoOverlay = document.getElementById('#' + this.get('overlay'));
-
-        this.set('scrolled', state);
-        if (!svgLogoOverlay) {
-          return;
-        }
-        if (state) {
-          svgLogoOverlay.style.opacity = 0.8;
-        } else {
-          svgLogoOverlay.style.opacity = 0;
-        }
-      });
-    }
-  },
-
-  scrolledClass: Ember.computed('scrolled', function() {
-    if (this.get('scrolled')) {
-      return 'scrolled';
-    }
-    return '';
-  }),
 
   mobileMenuClass: Ember.computed('isMobileMenuOpen', function() {
     if (this.get('isMobileMenuOpen')) {

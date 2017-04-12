@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['markdown', 'editor'],
 
-  source: '',
+  value: '',
   name: Ember.computed(function() {
     return this.get('elementId') + '-markdown';
   }),
@@ -55,7 +55,7 @@ export default Ember.Component.extend({
     area.removeEventListener('touchmove', areaScrollCallback);
   },
 
-  _highlightCode: Ember.observer('source', function() {
+  _highlightCode: Ember.observer('value', function() {
     if (window.hljs) {
       Ember.run.next(() => {
         const root = this.get('element');
@@ -179,13 +179,13 @@ export default Ember.Component.extend({
       let selection = document.selection.createRange();
       selection.text = text;
     } else {
-      this.set('source', this.get('source') + text);
+      this.set('value', this.get('value') + text);
     }
   },
 
   _replaceRange: function(src, start, end, text) {
     const result = src.substring(0, start) + text + src.substring(end, src.length);
-    this.set('source', result);
+    this.set('value', result);
   },
 
   _refreshRange: function(start, end) {

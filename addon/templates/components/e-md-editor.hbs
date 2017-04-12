@@ -167,7 +167,7 @@
       {{/each}}
     </div>
     <div class="vertical container source main-start cross-stretch {{if (not showPreview) "wide"}}">
-      {{textarea value=source name=name}}
+      {{textarea value=value name=name}}
     </div>
 
     {{#if showPreview}}
@@ -175,7 +175,7 @@
         <div class="wrapper">
           {{markdown-to-html
             class='result'
-            markdown=source
+            markdown=value
             strikethrough=true
             ghCompatibleHeaderId=true
             prefixHeaderId='md-'

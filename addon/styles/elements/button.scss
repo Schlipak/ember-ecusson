@@ -7,7 +7,7 @@ button, .button {
   display: inline-block;
   position: relative;
 
-  padding: .4em .8em;
+  padding: .6em 1.2em;
   margin: .1em;
 
   border: none;
@@ -163,7 +163,7 @@ button, .button {
   } //! .basic
 
   &.rounded {
-    border-radius: 1.1em;
+    border-radius: 2.4em;
 
     &.basic {
       border-radius: 1.25em;

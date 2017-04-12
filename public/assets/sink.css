@@ -25,10 +25,13 @@ body > .ember-view {
 }
 
 .sink {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   position: relative;
   width: 80%;
-  padding-top: 10em;
+  padding-top: 1em;
 
   background: white;
   box-shadow: 0 1em 2em -1em rgba(0, 0, 0, .3);
@@ -38,6 +41,8 @@ body > .ember-view {
   display: block;
   position: relative;
   padding: 1em 2em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .sink > section:not(:last-child) {

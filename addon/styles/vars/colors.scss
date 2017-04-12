@@ -19,6 +19,7 @@ $color-fuchsia: #E91E63;
 $color-brown  : #A38671;
 
 $color-primary: $color-blue;
+$color-accent : $color-fuchsia;
 
 $--std-colors:  (
   "red"    : $color-red,
@@ -34,7 +35,8 @@ $--std-colors:  (
   "fuchsia": $color-fuchsia,
   "brown"  : $color-brown,
 
-  "primary": $color-primary
+  "primary": $color-primary,
+  "accent" : $color-accent
 );
 
 // Dark colors
@@ -52,6 +54,7 @@ $color-fuchsia-dark: #C2185B;
 $color-brown-dark  : #8E725E;
 
 $color-primary-dark: $color-blue-dark;
+$color-accent-dark : $color-fuchsia-dark;
 
 $--std-colors-dark: (
   "red"    : $color-red-dark,
@@ -67,7 +70,8 @@ $--std-colors-dark: (
   "fuchsia": $color-fuchsia-dark,
   "brown"  : $color-brown-dark,
 
-  "primary": $color-primary-dark
+  "primary": $color-primary-dark,
+  "accent" : $color-accent-dark
 );
 
 // Neutral colors
